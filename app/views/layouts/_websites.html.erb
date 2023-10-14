@@ -1,0 +1,13 @@
+<% websites = current_user.websites %>
+<% if websites.present? %>
+  <div class="container mb-3 d-flex">
+    <select onchange="location = this.value" class="form-select select-custom">
+      <% websites.map do |website| %>
+        <% paths = request.path.split("/") %>
+        <% selected = paths[2] == website.id.to_s %>
+        <% paths[2] = website.id %>
+        <option <%= selected ? 'selected' : '' %> value="<%= paths.join('/') %>" > <%= website.name %></option>
+      <% end %>
+    </select>
+  </div>
+<% end %>

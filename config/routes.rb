@@ -5,6 +5,19 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :websites do
-    resources :products
+    member do
+      get :analytic
+    end
+    resources :posts, except: :show
+    resources :users, except: [:show, :edit, :update]
+    resources :categories
+  end
+
+  resources :attachments, only: [] do
+    post :resize, on: :collection
+  end
+
+  namespace :api do
+    resources :websites, only: :create
   end
 end

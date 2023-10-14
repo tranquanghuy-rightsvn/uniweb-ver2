@@ -1,0 +1,71 @@
+<%= stylesheet_link_tag 'new_website', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'new_website', 'data-turbolinks-track': 'reload' %>
+
+<div id="user-id" data-id="<%= Encrypt.encrypt(current_user.id) %>">
+
+<div id="mydiv" class="uni-wrapper">
+  <div id="mydivheader">
+    <select class="form-select select-element" id="select-item">
+      <option></option>
+      <option value="Menu" data-uniq="true">Menu</option>
+      <option>Header</option>
+      <option>Products</option>
+      <option>Posts</option>
+      <option>Feature</option>
+      <option>Recommendation</option>
+      <option>Team</option>
+      <option>Network</option>
+      <option>Gallery</option>
+      <option>Contact</option>
+      <option>Footer</option>
+    </select>
+    <button class="btn btn-primary" onClick="addElement()">Thêm phần tử </button>
+  </div>
+
+  <div id="mydivcontent">
+  </div>
+</div>
+
+<div id="uni-toolbar">
+  <div class="uni-toolbar-page">
+  </div>
+
+  <div class="uni-toolbar-console">
+    <button class="btn btn-primary">Lưu</button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createWebsite">Tạo Website</button>
+  </div>
+</div>
+
+<div id="all">
+</div>
+
+<div class="modal fade" id="createWebsite" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chỉ còn 1 bước nữa thôi!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group mb-3">
+          <label>Name website: (khoảng 1-3 từ)</label>
+          <input class="form-control" type="text" id="nameWebsite">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Title website: (khoảng 10-20 từ)</label>
+          <input class="form-control" type="text" id="titleWebsite">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Description website: (khoảng 50 - 100 từ)</label>
+          <textarea class="form-control" id="descriptionWebsite" rows="4"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="submit_website()">Hoàn thành</button>
+      </div>
+    </div>
+  </div>
+</div>

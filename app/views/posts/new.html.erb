@@ -1,0 +1,97 @@
+<div class="container" id="create-new-record" data-model="<%= @post.class.to_s.underscore %>">
+  <h2>Tạo post</h2>
+
+  <%= form_for(@post, url: website_posts_path) do |form| %>
+    <div id="error_explanation">
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :url %>
+      <input class="form-control" disabled="disabled" id="url-display-field" >
+      <%= form.hidden_field :url, id: "url-hidden-field" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :category %>
+      <%= form.select(:category_id, options_for_select(Category.generate_options(params[:website_id], 2)), {}, class: "form-control") %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content , class: "rich_text_area" %>
+    </div>
+
+    <div class="form-group">
+      <label for="post_refer_ids">Bài viết liên quan</label>
+      <div class="input-group mb-3">
+        <%= select_tag(:refer_ids, options_for_select(Post.where(website_id: params[:website_id]).pluck(:title, :id)), {class: 'form-control'}) %>
+         <span class="input-group-text btn btn-primary w-80px" onclick="add_refer()">Thêm</span>
+      </div>
+      <div id="display_refer_posts">
+
+      </div>
+
+      <%= form.hidden_field :refer_ids %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.file_field :image, id: "inputImageProduct", class: "form-control" %>
+
+      <!-- handle image  -->
+    </div>
+
+    <div class="button-create">
+      <%= form.submit "Tạo", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  function add_refer(){
+    let current_value = JSON.parse(document.getElementById('post_refer_ids').value)
+    current_value.push(parseInt(document.getElementById('refer_ids').value))
+
+    const select = document.querySelector('select#refer_ids');
+    const option = select.querySelector(`option[value="${select.value}"]`);
+    const text = option.textContent
+    select.removeChild(option);
+
+    document.getElementById('post_refer_ids').value = JSON.stringify(current_value)
+    document.getElementById('display_refer_posts').innerHTML += "<div class=\"group-div\"><div class='post-refer-new'>" + text + "</div><button class=\"input-group-text btn btn-danger\" onclick=\"remove_refer(this)\">x</button></div>"
+  }
+</script>
+
+<style>
+  .post-refer-new{
+    padding: 5px;
+    border: 1px solid #e8e8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .group-div button{
+    height: 40px;
+  }
+
+  .group-div{
+    display: flex;
+  }
+</style>

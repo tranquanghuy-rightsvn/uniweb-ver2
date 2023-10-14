@@ -1,0 +1,32 @@
+<div class="container" >
+  <h2>Tạo người quản lý</h2>
+
+  <%= form_for(@user, url: website_users_path) do |form| %>
+    <div id="error_explanation">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.text_field :password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password_confirmation %>
+      <%= form.text_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <div class="button-create">
+      <%= form.submit "Tạo", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

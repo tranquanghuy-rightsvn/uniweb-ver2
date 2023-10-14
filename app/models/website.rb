@@ -1,33 +1,65 @@
 class Website < ApplicationRecord
-  belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
-  has_many :products
+  mount_uploader :logo, WebsiteLogoUploader
+  mount_uploader :icon, WebsiteIconUploader
 
-  before_create :change_role_user
+  include RenderHtml
+
+  has_many :products
+  has_many :posts
+  has_many :pages
+  has_many :maps
+  has_many :categories
+
+  has_many :user_website_managers, -> { where(role: 0) }, class_name: 'UserWebsiteRole'
+  has_many :managers, through: :user_website_managers, source: :user
+
+  has_one :user_website_owner, -> { where(role: 1) }, class_name: 'UserWebsiteRole'
+  has_one :owner, through: :user_website_owner, source: :user
+
+  has_many :user_website_roles
+
+  has_one :repo_website
+  has_one :repo, through: :repo_website
+
   after_create :generate_folder
+
+  def menu
+    Nokogiri.HTML(pages.first.html).at_css('nav').to_s.gsub("opacity-menu", "")
+  end
+
+  def footer
+    Nokogiri.HTML(pages.first.html).at_css('.footer').to_s
+  end
+
+  def real_domain
+    domain = domain_website || repo.vercel_domain
+    "https://www." + domain + "/"
+  end
 
   private
 
-  def change_role_user
-    owner.owner_website! if User.roles[owner.role] > 2
-  end
-
   def generate_folder
-    # folder_path = Rails.root.join('projects', brief)
-    # images_path = Rails.root.join('projects', brief, 'images')
-    # js_path = Rails.root.join('projects', brief, 'javascripts')
-    # css_path = Rails.root.join('projects', brief, 'css')
+    Dir.chdir("#{Rails.root.parent}/projects/#{repo.path}")
+    sitemap_xml = Nokogiri::XML(File.read('sitemaps.xml'))
+    urlset_sitemap_xml = sitemap_xml.at_css('urlset')
 
-    # FileUtils.mkdir_p(folder_path)
-    # FileUtils.mkdir_p(images_path)
-    # FileUtils.mkdir_p(js_path)
-    # FileUtils.mkdir_p(css_path)
+    pages.map do |page|
+      if maps.pluck(:page_name).include?(page.name)
+        page_maps = maps.select{|m| m.page_name == page.name}
+        html = Nokogiri.HTML(page.html)
+        page_maps.map do |map|
+          html.at_css(map.parent_div).inner_html = ''
+        end
 
+        page.html = html
+      end
 
-    # content = "<html><head><title>Generated HTML</title></head><body><h1>Hello, World!</h1></body></html>"
-    # File.write("projects/" + brief + "/index.html", content)
-    # File.write(js_path  + "index.js", '')
-    # File.write(css_path + "style.css", '')
+      content = RenderHtml.render_default(self, page)
+      urlset_sitemap_xml.inner_html += "<url><loc>" + real_domain + page.url + "</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>"
 
-    # system("cd projects/" + brief + " && git init")
+      File.write(page.url, content)
+    end
+
+    File.write('sitemaps.xml', sitemap_xml)
   end
 end

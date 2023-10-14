@@ -1,0 +1,339 @@
+[
+  {
+    "name": "Menu",
+    "type": "normal",
+    "property": {
+      "fullscreen": false,
+      "loginable": false,
+      "searchable": true,
+      "cartable": false,
+      "boxshadow": false,
+      "opacity":  "1",
+      "background": "#f8f9fa",
+      "colorDark": false,
+      "colorBold": false
+    },
+    "html": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\"><div class=\"container\"><a class=\"navbar-brand logo\" href=\"#\"><img src=\"./images/logo.png\"></a><button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\"><ul class=\"navbar-nav me-auto mb-2 mb-lg-0 menu-list-item\"></ul><ul class=\"navbar-nav ml-auto mb-2 mr-10 uni-searchable\"><form class=\"d-flex mb-0\"><input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\"><button class=\"btn btn-outline-success\" type=\"submit\">Search</button></form></ul><ul class=\"navbar-nav ml-auto mb-2 mr-10 uni-loginable\"></ul><ul class=\"navbar-nav ml-auto mb-2 uni-cartable\"></ul></div></div></nav>",
+    "menu_items": [
+      {
+        "name": "Trang chủ",
+        "type": "normal"
+      },
+      {
+        "name": "Danh mục",
+        "type": "dropdown",
+        "children": ["Ăn", "Chơi", "Ngủ"],
+        "children_special": ["Rửa bát"]
+      },
+      {
+        "name": "Tin tức",
+        "type": "normal"
+      },
+      {
+        "name": "Liên hệ",
+        "type": "disabled"
+      }
+    ]
+  },
+  {
+    "name": "Menu",
+    "type": "modern",
+    "property": {
+      "fullscreen": false,
+      "boxshadow": false,
+      "opacity": {"value": 1},
+      "background": "#f8f9fa",
+      "colorDark": false,
+      "colorBold": false
+    },
+    "html": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\"><div class=\"container\"><a class=\"navbar-brand logo\" href=\"#\"><img src=\"./images/logo.png\"></a><button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\"><ul class=\"navbar-nav ms-auto mb-2 mb-lg-0 menu-list-item\"></ul></div></div></nav>",
+    "menu_items": [
+      {
+        "name": "Trang chủ",
+        "type": "normal"
+      },
+      {
+        "name": "Danh mục",
+        "type": "dropdown",
+        "children": ["a", "b", "c"]
+      },
+      {
+        "name": "Tin tức",
+        "type": "normal"
+      },
+      {
+        "name": "Liên hệ",
+        "type": "disabled"
+      }
+    ]
+  },
+  {
+    "name": "Menu",
+    "type": "luxury",
+    "property": {
+      "fullscreen": false,
+      "boxshadow": false,
+      "opacity": {"value": 1},
+      "background": "#f8f9fa",
+      "colorDark": false,
+      "colorBold": false
+    },
+    "html": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\"><div class=\"container\"><a class=\"navbar-brand logo\" href=\"#\"><img src=\"./images/logo.png\"></a><button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\"><ul class=\"navbar-nav mx-auto mb-2 mb-lg-0 menu-list-item\"></ul></div></div></nav>",
+    "menu_items": [
+      {
+        "name": "Trang chủ",
+        "type": "normal"
+      },
+      {
+        "name": "Danh mục",
+        "type": "dropdown",
+        "children": ["a", "b", "c"]
+      },
+      {
+        "name": "Tin tức",
+        "type": "normal"
+      },
+      {
+        "name": "Liên hệ",
+        "type": "disabled"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "type": "normal",
+    "html": "<div class=\"container\"><div class='header'><img src='./images/banner1.jpg'><div class='container'><div class='carousel-caption text-start'><h1 class=\"text-1\">Text title</h1><p class=\"text-2\"> This is a short description about your website</p><p><a href='#' class='link-1'><button class='btn btn-primary text-3'>CLICK ME</button></a></p></div></div></div></div>",
+    "property": {
+      "fullscreen": false,
+      "text": ["Title", "Description something about your website", "Click me"],
+      "link": ["#"]
+    }
+  },
+  {
+    "name": "Header",
+    "type": "normal-title",
+    "html": "<div class=\"container\"><div class='header'><img src='./images/banner1.jpg'><div class='container'><div class='text-title'><h1></h1></div></div></div></div>",
+    "property": {
+      "fullscreen": true,
+      "normalTitle": "Danh mục"
+    }
+  },
+  {
+    "name": "Header",
+    "type": "slider-text-start",
+    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+    "property": {
+      "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
+    }
+  },
+  {
+    "name": "Header",
+    "type": "slider-text-center",
+    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+    "property": {
+      "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
+    }
+  },
+  {
+    "name": "Header",
+    "type": "slider-text-end",
+    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+     "property": {
+      "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
+    }
+  },
+  {
+    "name": "Header",
+    "type": "slider-no-text",
+    "html": "<div class='container'><div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\"><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div></div>",
+    "property": {
+      "fullscreen": false
+    }
+  },
+  {
+    "name": "Header",
+    "type": "slider-fade",
+    "html": "<div class='container'><div id=\"carouselExampleFade\" class=\"carousel slide carousel-fade\" data-bs-ride=\"carousel\"><div class=\"carousel-inner\"><div class=\"carousel-item active\"><img src=\"./images/banner1.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner3.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner2.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><\/div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleFade\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleFade\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div></div>",
+    "property": {
+      "fullscreen": false
+    }
+  },
+  {
+    "name": "Feature",
+    "type": "6-items",
+    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/7.svg\" alt=\"7\"><h4 class=\"mb-3 text-10\">Responsive Design</h4><p class=\"mb-0 text-11\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/8.svg\" alt=\"8\"><h4 class=\"mb-3 text-12\">Responsive Design</h4><p class=\"mb-0 text-13\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "property": {
+      "bordered": false,
+      "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3", "Responsive Design 4", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 4", "Responsive Design 5", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 5", "Responsive Design 6", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 6"]
+    }
+  },
+  {
+    "name": "Feature",
+    "type": "4-items",
+    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 mw-400 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 mw-400 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 mw-400 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 mw-400 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "property": {
+      "bordered": false,
+      "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3", "Responsive Design 4", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 4"]
+    }
+  },
+  {
+    "name": "Feature",
+    "type": "3-items",
+    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "property": {
+      "bordered": false,
+      "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3"]
+    }
+  },
+   {
+    "name": "Products",
+    "type": "index-newest-type-1",
+    "html": "<div class=\"container c1 product-list\"><h2 class=\"text-center text-uppercase mb-3 mt-5\">Sản phẩm mới nhất</h2><div class=\"row\"><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div></div></div>",
+    "property": {},
+    "map": {
+      "type": "product",
+      "variant": "newest",
+      "limit_item": 12,
+      "template_name": "product-index-newest-type-1",
+      "parent_div": ".container.c1.product-list .row"
+    }
+  },
+  {
+    "name": "Products",
+    "type": "index-category-type-1",
+    "html": "<div class=\"container c2 product-list\"><h2 class=\"text-center text-uppercase mb-3 mt-5 categoryName\">Phụ kiện</h2><div class=\"row\"><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div><div class=\"col-sm-12 col-md-6 col-xl-3\"><div class=\"card text-center\"><div class=\"image\"> <img src=\"./images/headphone.png\" width=\"300\"> </div><div class=\"about-product text-center\"><h4>Headphone</h4><h5><small>₫ 100.000</small></h5> <button class=\"btn btn-success buy-now\"><i class=\"fas fa-cart-arrow-down\"></i>&nbsp;Thêm vào giỏ</button></div></div></div></div></div>",
+    "property": {
+      "categoryName": "Phụ kiện"
+    },
+    "map": {
+      "type": "product",
+      "variant": "category",
+      "limit_item": 12,
+      "template_name": "product-index-category-type-1",
+      "parent_div": ".container.c2.product-list .row"
+    }
+  },
+  {
+    "name": "Posts",
+    "type": "index-newest-type-1",
+    "html": "<div class=\"container post-list p1 mb-40\"><h2 class='text-uppercase mt-5'>Bài viết mới</h2></p><div class=\"row\"><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 p1col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div></div></div>",
+    "property": {},
+    "map": {
+      "type": "post",
+      "variant": "newest",
+      "limit_item": 8,
+      "template_name": "post-index-newest-type-1",
+      "parent_div": ".container.p1.post-list .row"
+    }
+  },
+  {
+    "name": "Posts",
+    "type": "index-newest-type-2",
+    "html": "<div class=\"container post-list p2 mb-40\"><h2 class=\"mt-5 text-uppercase text-center\">Bài viết mới</h2><div class=\"row\"><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div></div></div>",
+    "property": {},
+    "map": {
+      "type": "post",
+      "variant": "newest",
+      "limit_item": 8,
+      "template_name": "post-index-newest-type-2",
+      "parent_div": ".container.p2.post-list .row"
+    }
+  },
+  {
+    "name": "Posts",
+    "type": "index-category-type-1",
+    "html": "<div class=\"container post-list p3 mb-40\"><h2 class='text-uppercase mt-5 categoryName'>Thể thao</h2></p><div class=\"row\"><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div></div></div>",
+    "property": {
+      "categoryName": "Thể thao"
+    },
+    "map": {
+      "type": "post",
+      "variant": "category",
+      "limit_item": 8,
+      "template_name": "post-index-category-type-1",
+      "parent_div": ".container.p3.post-list .row",
+      "category_name": "Thể thao"
+    }
+  },
+  {
+    "name": "Posts",
+    "type": "index-category-type-2",
+    "html": "<div class=\"container post-list p4 mb-40\"><h2 class=\"mt-5 text-uppercase text-center categoryName\">Thể thao</h2><div class=\"row\"><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div><div class=\"col-lg-3 col-sm-6 col-xs-12\"><a href=\"#\"><div class=\"post-item\"><img src=\"./images/ronaldo.jpg\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4></div></a></div></div></div>",
+    "property": {
+      "categoryName": "Thể thao"
+    },
+    "map": {
+      "type": "post",
+      "variant": "category",
+      "limit_item": 8,
+      "template_name": "post-index-category-type-2",
+      "parent_div": ".container.p4.post-list .row"
+    }
+  },
+  {
+    "name": "Posts",
+    "type": "index-newest-type-4",
+    "html": "<div class=\"container post-list p5 mb-40\"><h2 class=\"mt-5 mb-3 text-uppercase\">Bài viết mới</h2><div class=\"row\"><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậy thôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậy thôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậy thôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậy thôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậythôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div><div class=\"col-md-8 col-xs-12 mb-3\"><a href=\"#\"><div class=\"post-item\"><div class=\"row\"><div class=\"col-md-4 col-xs-12\"><img src=\"./images/ronaldo.jpg\"></div><div class=\"col-md-8 col-xs-12\"><h4>Ronaldo và Messi tranh quả bóng vàng 2023</h4><p>Ronaldo và Messi hôm nay đã chính thức có tên trong đề cử quả bóng vàng 2023. Liệu ai sẽ là người chiến thắng năm nay (chỉ là tôi đang mơ ước vậy thôi)</p></div></div></div></a></div><div class=\"col-md-4 col-xs-0\"></div></div></div>",
+    "property": {},
+    "map": {
+      "type": "post",
+      "variant": "newest",
+      "limit_item": 8,
+      "template_name": "post-index-newest-type-4",
+      "parent_div": ".container.p5.post-list .row"
+    }
+  },
+  {
+    "name": "Network",
+    "type": "normal",
+    "html": "<div class=\"network n1\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-md-6 col-xs-12 network-item\"><a href=\"#\" class='facebook'><img src=\"./images/facebook.svg\"></a></div><div class=\"col-xl-3 col-md-6 col-xs-12 network-item\"><a href=\"#\" class='twitter'><img src=\"./images/twitter.svg\"></a></div><div class=\"col-xl-3 col-md-6 col-xs-12 network-item\"><a href=\"#\" class='whatsapp'><img src=\"./images/phone.svg\"></a></div><div class=\"col-xl-3 col-md-6 col-xs-12 network-item\"><a href=\"#\" class='instagram'><img src=\"./images/instagram.svg\"></a></div></div></div></div>",
+    "property": {
+      "linkNetwork": {
+        "facebook": "https://facebook.com",
+        "twitter": "https://twitter.com/",
+        "instagram": "https://www.instagram.com/",
+        "whatsapp": "tel:0123456789"
+      }
+    }
+  },
+  {
+    "name": "Contact",
+    "type": "normal",
+    "html": "<div class=\"container ct1 mt-5 mb-40\"><h2 class='text-1'>Liên hệ</h2><p class='text-2'>Bất cứ thắc mắc hay phản hồi gì bạn có thể liên hệ với chúng tôi ở đây.</p><div class=\"row mt-4\"><div class=\"col-md-6 col-12 mb-4\"><div class=\"contact-form\"><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Họ và tên\"></div><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Số điện thoại\"></div><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Địa chỉ\"></div><div class=\"contact-item mb-3\"><textarea type=\"text\" placeholder=\"Phản hồi của bạn\" rows=\"4\"></textarea></div><div class=\"contact-item\"><button class=\"text-uppercase\">Submit</button></div></div></div><div class=\"col-md-6 col-12 mb-4 iframe-google-map\"><iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3753.724804078616!2d105.77100021589318!3d19.80926210373174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136f8029a42a111%3A0x4babc164441c67c0!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gVGjGsMahbmcgTeG6oWkgdsOgIFbhuq1uIFThuqNpIFRoYW5oIEhvw6E!5e0!3m2!1svi!2s!4v1698055987019!5m2!1svi!2s\" referrerpolicy=\"no-referrer-when-downgrade\" load=\"lazy\" class=\"google-map\"></iframe></div></div></div>",
+    "property": {
+      "text": ["Liên hệ", "Bất cứ thắc mắc hay phản hồi gì bạn có thể liên hệ với chúng tôi ở đây."],
+      "iframeMap": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3753.724804078616!2d105.77100021589318!3d19.80926210373174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136f8029a42a111%3A0x4babc164441c67c0!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gVGjGsMahbmcgTeG6oWkgdsOgIFbhuq1uIFThuqNpIFRoYW5oIEhvw6E!5e0!3m2!1svi!2s!4v1698055987019!5m2!1svi!2s\" referrerpolicy=\"no-referrer-when-downgrade\" load=\"lazy\" class=\"google-map\"></iframe>"
+    }
+  },
+  {
+    "name": "Contact",
+    "type": "normal-reverse",
+    "html": "<div class=\"container ct1 mt-5 mb-40\"><h2 class='text-1'>Liên hệ</h2><p class='text-2'>Bất cứ thắc mắc hay phản hồi gì bạn có thể liên hệ với chúng tôi ở đây.</p><div class=\"row mt-4\"><div class=\"col-md-6 col-12 mb-4 iframe-google-map\"><iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3753.724804078616!2d105.77100021589318!3d19.80926210373174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136f8029a42a111%3A0x4babc164441c67c0!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gVGjGsMahbmcgTeG6oWkgdsOgIFbhuq1uIFThuqNpIFRoYW5oIEhvw6E!5e0!3m2!1svi!2s!4v1698055987019!5m2!1svi!2s\" referrerpolicy=\"no-referrer-when-downgrade\" load=\"lazy\" class=\"google-map\"></iframe></div><div class=\"col-md-6 col-12 mb-4\"><div class=\"contact-form\"><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Họ và tên\"></div><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Số điện thoại\"></div><div class=\"contact-item mb-3\"><input type=\"text\" placeholder=\"Địa chỉ\"></div><div class=\"contact-item mb-3\"><textarea type=\"text\" placeholder=\"Phản hồi của bạn\" rows=\"4\"></textarea></div><div class=\"contact-item\"><button class=\"text-uppercase\">Submit</button></div></div></div></div></div>",
+    "property": {
+      "text": ["Liên hệ", "Bất cứ thắc mắc hay phản hồi gì bạn có thể liên hệ với chúng tôi ở đây."],
+      "iframeMap": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3753.724804078616!2d105.77100021589318!3d19.80926210373174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136f8029a42a111%3A0x4babc164441c67c0!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gVGjGsMahbmcgTeG6oWkgdsOgIFbhuq1uIFThuqNpIFRoYW5oIEhvw6E!5e0!3m2!1svi!2s!4v1698055987019!5m2!1svi!2s\" referrerpolicy=\"no-referrer-when-downgrade\" load=\"lazy\" class=\"google-map\"></iframe>"
+    }
+  },
+  {
+    "name": "Footer",
+    "type": "normal",
+    "html": "<footer class=\"footer pt-5 pb-4\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4 col-md-5 col-12 mb-4\"><div class=\"footer-title\"><h4 class='text-1'></h4><p class='text-2'></p></div></div><div class=\"col-lg-2 col-md-5 col-6 mb-4\"><div class=\"footer-title\"><h4>About</h4><ul><li><a href=\"#\">Team</a></li><li><a href=\"#\">News</a></li><li><a href=\"#\">Features</a></li></ul></div></div><div class=\"col-lg-2 col-md-5 col-6 mb-4\"><div class=\"footer-title\"><h4>Work</h4><ul><li><a href=\"#\">Team</a></li><li><a href=\"#\">News</a></li><li><a href=\"#\">Features</a></li></ul></div></div><div class=\"col-lg-2 col-md-5 col-6 mb-4\"><div class=\"footer-title\"><h4>Members</h4><ul><li><a href=\"#\">Team</a></li><li><a href=\"#\">News</a></li><li><a href=\"#\">Features</a></li></ul></div></div><div class=\"col-lg-2 col-md-5 col-6 mb-4\"><div class=\"footer-title\"><h4>Follow Slick</h4><ul><li><a href=\"#\">Team</a></li><li><a href=\"#\">News</a></li><li><a href=\"#\">Features</a></li></ul></div></div></div><div class=\"footer-bottom\"><a href=\"#\">Kho lưu trữ</a></div><hr /><div class=\"text-center\">@2023 copyright by Abc</div></div></footer>",
+    "property": {
+      "text": ["Title website", "Description for your website"]
+    }
+  },
+  {
+    "name": "Recommendation",
+    "type": "normal",
+    "html": "<div class=\"container mb-40 te1\"><h3 class=\"mt-5 text-center text-1\"> Khách hàng nói gì về chúng tôi</h3><p class=\"text-center mb-5 text-2\"> Hoạt động hơn 6 năm và được hàng triệu khách hàng tại Việt Nam tin dùng</p><div class=\"row\"><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-3\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-4\">Liam Neeson</h4><h6 class=\"text-5\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-6\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-7\">Liam Neeson</h4><h6 class=\"text-8\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class \"content-testimon\"><blockquote class=\"text-9\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text10\">Liam Neeson</h4><h6 class=\"text-11\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-12\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-13\">Liam Neeson</h4><h6 class=\"text-14\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-15\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-16\">Liam Neeson</h4><h6 class=\"text-17\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-18\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-19\">Liam Neeson</h4><h6 class=\"text-20\">CEO, Blue Web Design</h6></div></div></div></div></div>",
+    "property": {
+      "text": ["Khách hàng nói gì về chúng tôi", "Hoạt động hơn 6 năm và được hàng triệu khách hàng tại Việt Nam tin dùng", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design"]
+    }
+  },
+  {
+    "name": "Team",
+    "type": "normal",
+    "html": "<div class=\"container mb-40 tm1\"><h3 class=\"mt-5 text-center\">Thành viên</h3><div class=\"row\"><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div></div></div>",
+    "property": {}
+  }
+]

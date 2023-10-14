@@ -18,6 +18,19 @@ gem 'aws-sdk-s3'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'fog-aws'
 gem 'nokogiri'
+gem "image_processing", ">= 1.2"
+gem "mini_magick"
+gem 'google-api-ruby-client'
+gem 'google-api-client'
+gem "sidekiq"
+gem "bcrypt"
+
+# deploy
+gem 'capistrano'
+gem 'capistrano3-puma'
+gem 'capistrano-rails', require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rvm'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

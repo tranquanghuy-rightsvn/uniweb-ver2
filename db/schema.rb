@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_08_124606) do
+ActiveRecord::Schema.define(version: 2023_10_28_153214) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -52,28 +52,91 @@ ActiveRecord::Schema.define(version: 2023_10_08_124606) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
+    t.integer "category_type"
+    t.boolean "editable", default: true
     t.bigint "website_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["website_id"], name: "index_categories_on_website_id"
   end
 
-  create_table "products", charset: "utf8mb4", force: :cascade do |t|
+  create_table "maps", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "map_type"
+    t.integer "variant"
+    t.string "template_name"
+    t.string "parent_div"
+    t.string "page_name"
+    t.string "category_name"
+    t.integer "limit_item"
+    t.bigint "website_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["website_id"], name: "index_maps_on_website_id"
+  end
+
+  create_table "pages", charset: "utf8mb4", force: :cascade do |t|
+    t.text "html"
+    t.string "url"
+    t.string "name"
+    t.bigint "website_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["website_id"], name: "index_pages_on_website_id"
+  end
+
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
-    t.string "description"
-    t.string "price"
+    t.text "description"
     t.string "url"
     t.string "image"
+    t.string "refer_ids", default: "[]"
     t.bigint "category_id"
     t.bigint "user_id"
     t.bigint "website_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type", null: false
-    t.boolean "content_copied", default: false
+    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["website_id"], name: "index_posts_on_website_id"
+  end
+
+  create_table "product_images", charset: "utf8mb4", force: :cascade do |t|
+    t.string "image"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
+  create_table "products", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.text "description"
+    t.bigint "user_id"
+    t.bigint "website_id", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
     t.index ["website_id"], name: "index_products_on_website_id"
+  end
+
+  create_table "repo_websites", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "repo_id"
+    t.bigint "website_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repo_id"], name: "index_repo_websites_on_repo_id"
+    t.index ["website_id"], name: "index_repo_websites_on_website_id"
+  end
+
+  create_table "repos", charset: "utf8mb4", force: :cascade do |t|
+    t.string "path"
+    t.string "vercel_domain"
+    t.boolean "is_available", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_website_roles", charset: "utf8mb4", force: :cascade do |t|
@@ -92,7 +155,7 @@ ActiveRecord::Schema.define(version: 2023_10_08_124606) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "role", default: 4, null: false
+    t.integer "role", default: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -101,17 +164,15 @@ ActiveRecord::Schema.define(version: 2023_10_08_124606) do
 
   create_table "websites", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.string "brief"
-    t.string "github"
-    t.string "repo"
-    t.string "account_github"
-    t.string "password_github"
     t.string "domain_vercel"
     t.string "domain_website"
-    t.bigint "user_id"
+    t.string "title"
+    t.string "description"
+    t.string "province"
+    t.string "logo"
+    t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_websites_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

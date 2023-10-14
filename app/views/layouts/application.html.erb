@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Uniwebsite</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Uniwebsite</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          <br><br><br><br>
+          <% website_id = current_user.websites.first&.id %>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+            <% if current_user.is_own_website?(params[:website_id]) %>
+              <li class="nav-item w-100">
+                <a href="/" class="nav-link align-middle px-0 <%= params[:controller] == "home" ? 'active' : '' %>">
+                  <i class="fas fa-chart-bar"></i> <span class="ms-1 d-none d-sm-inline">SỐ LIỆU THỐNG KÊ</span>
+                </a>
+              </li>
+            <% end %>
+
+            <% if current_user.is_own_website?(params[:website_id]) %>
+              <li class="nav-item w-100">
+                <a href="/websites/<%= website_id %>/categories" class="nav-link align-middle px-0 <%= params[:controller] == "categories" ? 'active' : '' %>">
+                  <i class="far fa-bookmark"></i><span class="ms-1 d-none d-sm-inline">DANH MỤC</span>
+                </a>
+              </li>
+            <% end %>
+
+            <% if website_id %>
+              <li class="nav-item w-100">
+                <a href="/websites/<%= website_id %>/posts" class="nav-link align-middle px-0 <%= params[:controller] == "posts" ? 'active' : '' %>">
+                  <i class="far fa-newspaper"></i><span class="ms-1 d-none d-sm-inline">BÀI VIẾT</span>
+                </a>
+              </li>
+              <li class="nav-item w-100">
+                <a href="/websites/<%= website_id %>/products" class="nav-link align-middle px-0 <%= params[:controller] == "products" ? 'active' : '' %>">
+                  <i class="fas fa-tshirt"></i><span class="ms-1 d-none d-sm-inline">SẢN PHẨM</span>
+                </a>
+              </li>
+            <% end %>
+
+            <% if current_user.is_own_website?(params[:website_id]) %>
+              <li class="nav-item w-100">
+                <a href="/websites/<%= website_id %>/users" class="nav-link align-middle px-0 <%= params[:controller] == "users" ? 'active' : '' %>">
+                  <i class="fas fa-users"></i><span class="ms-1 d-none d-sm-inline">NGƯỜI DÙNG</span>
+                </a>
+              </li>
+            <% end %>
+
+            <% if current_user.is_own_website?(params[:website_id]) %>
+              <li>
+                <a href="#" class="nav-link px-0 align-middle <%= params[:controller] == "domains" ? 'active' : '' %>">
+                  <i class="fas fa-map-marker"></i><span class="ms-1 d-none d-sm-inline">TÊN MIỀN</span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+          <hr>
+          <div class="dropdown pb-4">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+              <span class="d-none d-sm-inline mx-1"><%= current_user.email %></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+              <li><a class="dropdown-item" href="#">Tạo website mới</a></li>
+              <li><a class="dropdown-item" href="#">Liên hệ với SuperAdmin</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><%= link_to "Đăng xuất", destroy_user_session_path, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col py-3">
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-<%= type %>" id="alert">
+            <%= msg %>
+          </div>
+        <% end %>
+        <%= render 'layouts/websites' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

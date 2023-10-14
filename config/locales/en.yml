@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      extension_allowlist_error: 'Không cho phép kiểu đuôi %{extension}, chỉ cho phép đuôi .%{allowed_types}'

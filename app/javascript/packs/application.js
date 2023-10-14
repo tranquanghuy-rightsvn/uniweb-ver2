@@ -9,9 +9,11 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap';
 import "../stylesheets/application";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 require('jquery')
 require("packs/custom")
+require("packs/trix-editor-overrides")
 require("trix")
 require("@rails/actiontext")
 Rails.start()

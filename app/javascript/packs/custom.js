@@ -16,8 +16,13 @@ function convertTitle(title) {
 }
 
 document.addEventListener("turbolinks:load", () => {
-  $("input#product_websitegiare_title").on('input', function() {
-    $('#url-display-field').val(convertTitle($('input#product_websitegiare_title').val()) + ".html")
-    $('#url-hidden-field').val(convertTitle($('input#product_websitegiare_title').val()) + ".html")
-  });
+  var wrapperElement = $("#create-new-record");
+  if (wrapperElement.length > 0) {
+    var model = wrapperElement.data("model");
+    console.log(model)
+    $("input#" + model + "_title").on('input', function() {
+      $('#url-display-field').val(convertTitle($('input#' + model + '_title').val()) + ".html");
+      $('#url-hidden-field').val(convertTitle($('input#' + model + '_title').val()) + ".html");
+    });
+  }
 });
