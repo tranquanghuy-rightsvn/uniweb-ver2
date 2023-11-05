@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_owner_website
+  before_action :check_manage_website, :load_website
   before_action :load_user, only: :destroy
 
   def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.left_joins(websites: :user_website_roles).where(user_website_roles: { website_id: params[:website_id] })
+    @users = User.left_joins(websites: :user_website_roles).where(user_website_roles: { website_id: params[:website_id] }).distinct.order(id: :desc)
   end
 
 
@@ -37,5 +37,9 @@ class UsersController < ApplicationController
 
   def load_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def load_website
+    @website = Website.find_by id: params[:website_id]
   end
 end

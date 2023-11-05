@@ -3,6 +3,8 @@ module Api
     def create
       pages = JSON.parse(params_website[:pages])
       maps = JSON.parse(params_website[:maps].presence || "[]")
+      map_images = JSON.parse(params_website[:map_images])
+
       repo = Repo.available.first
       website = Website.new(repo: repo, title: params_website["title"],
         description: params_website["description"], name: params_website["name"])
@@ -27,6 +29,11 @@ module Api
 
           website.categories.new(name: map["category_name"], editable: false, category_type: 2)
         end
+      end
+
+      map_images.map do |map|
+        order =  website.map_images.count{ |web| web.element_name == map["element_name"] &&  web.page_name == map["page_name"] && web.parent_div == map["parent_div"] }
+        website.map_images.new(page_name: map["page_name"], element_name: map["element_name"], parent_div: map["parent_div"], order: order)
       end
 
       if website.save

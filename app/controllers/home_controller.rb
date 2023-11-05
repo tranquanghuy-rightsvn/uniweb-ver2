@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     website = current_user.websites.find{ |website| current_user.is_own_website?(website.id)}
 
     if website
-      redirect_to analytic_website_path(website.id)
+      redirect_to website_analytic_path(website_id: website.id)
     else
       website = current_user.websites.find{ |website| !current_user.is_own_website?(website.id)}
 

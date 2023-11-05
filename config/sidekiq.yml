@@ -1,0 +1,6 @@
+redis:
+  url: redis://localhost:6379
+
+concurrency: 13
+queue_latency: 1
+retry_delay: 3

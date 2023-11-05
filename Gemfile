@@ -22,8 +22,9 @@ gem "image_processing", ">= 1.2"
 gem "mini_magick"
 gem 'google-api-ruby-client'
 gem 'google-api-client'
-gem "sidekiq"
-gem "bcrypt"
+gem 'redis'
+gem 'redis-client'
+gem 'sidekiq'
 
 # deploy
 gem 'capistrano'

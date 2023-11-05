@@ -14,6 +14,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 require('jquery')
 require("packs/custom")
 require("packs/trix-editor-overrides")
+require('admin-lte');
 require("trix")
 require("@rails/actiontext")
 Rails.start()

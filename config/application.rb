@@ -35,6 +35,8 @@ module Uniwebsite
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_job.queue_adapter = :sidekiq
+    config.active_job.queue_name_prefix = "websitegiare"
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.middleware.insert_before 0, Rack::Cors do
       allow do

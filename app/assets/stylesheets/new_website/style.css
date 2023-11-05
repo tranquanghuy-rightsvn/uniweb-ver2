@@ -167,3 +167,7 @@
 .uni-detail-item input[type='text']{
   width: 80% !important;
 }
+
+.hidden {
+  display: none !important;
+}

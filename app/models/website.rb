@@ -17,6 +17,8 @@ class Website < ApplicationRecord
   has_one :owner, through: :user_website_owner, source: :user
 
   has_many :user_website_roles
+  has_many :website_images
+  has_many :map_images
 
   has_one :repo_website
   has_one :repo, through: :repo_website

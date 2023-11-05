@@ -102,53 +102,101 @@
   {
     "name": "Header",
     "type": "normal",
-    "html": "<div class=\"container\"><div class='header'><img src='./images/banner1.jpg'><div class='container'><div class='carousel-caption text-start'><h1 class=\"text-1\">Text title</h1><p class=\"text-2\"> This is a short description about your website</p><p><a href='#' class='link-1'><button class='btn btn-primary text-3'>CLICK ME</button></a></p></div></div></div></div>",
+    "html": "<div class=\"container\"><div class='header header-normal-image'><img src='./images/banner1.jpg'><div class='container'><div class='carousel-caption text-start'><h1 class=\"text-1\">Text title</h1><p class=\"text-2\"> This is a short description about your website</p><p><a href='#' class='link-1'><button class='btn btn-primary text-3'>CLICK ME</button></a></p></div></div></div></div>",
     "property": {
       "fullscreen": false,
       "text": ["Title", "Description something about your website", "Click me"],
       "link": ["#"]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": ".header-normal-image img"
+      }
+    ]
   },
   {
     "name": "Header",
     "type": "normal-title",
-    "html": "<div class=\"container\"><div class='header'><img src='./images/banner1.jpg'><div class='container'><div class='text-title'><h1></h1></div></div></div></div>",
+    "html": "<div class=\"container\"><div class='header header-normal-title-image'><img src='./images/banner1.jpg'><div class='container'><div class='text-title'><h1></h1></div></div></div></div>",
     "property": {
       "fullscreen": true,
       "normalTitle": "Danh mục"
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": ".header-normal-title-image img"
+      }
+    ]
   },
   {
     "name": "Header",
     "type": "slider-text-start",
-    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+    "html": "<div id=\"myCarousel-sts\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel-sts\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel-sts\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel-sts\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-start\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel-sts\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel-sts\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
     "property": {
       "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#myCarousel-sts .carousel-item img"
+      }
+    ]
   },
   {
     "name": "Header",
     "type": "slider-text-center",
-    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+    "html": "<div id=\"myCarousel-stc\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel-stc\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel-stc\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel-stc\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel-stc\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel-stc\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
     "property": {
       "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#myCarousel-stc .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-stc .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-stc .carousel-item img"
+      }
+    ]
   },
   {
     "name": "Header",
     "type": "slider-text-end",
-    "html": "<div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
+    "html": "<div id=\"myCarousel-ste\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel-ste\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel-ste\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel-ste\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-1'>Example headline.<\/h1><p class='text-2'>Some representative placeholder content for the first slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-3'>Another example headline.<\/h1><p class='text-4'>Some representative placeholder content for the second slide of the carousel.<\/p><\/div><\/div><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\" alt='banner'><div class=\"container\"><div class=\"carousel-caption text-end\"><h1 class='text-5'>One more for good measure.<\/h1><p class='text-6'>Some representative placeholder content for the third slide of this carousel.<\/p><\/div><\/div><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel-ste\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel-ste\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div>",
      "property": {
       "text": ["Example headline.", "Some representative placeholder content for the first slide of the carousel.", "Another example headline.", "Some representative placeholder content for the second slide of the carousel.", "One more for good measure.", "Some representative placeholder content for the first slide of the carousel."]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#myCarousel-ste .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-ste .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-ste .carousel-item img"
+      }
+    ]
   },
   {
     "name": "Header",
     "type": "slider-no-text",
-    "html": "<div class='container'><div id=\"myCarousel\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\"><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div></div>",
+    "html": "<div class='container'><div id=\"myCarousel-snt\" class=\"carousel slide header\" data-bs-ride=\"carousel\"><div class=\"carousel-indicators\"><button type=\"button\" data-bs-target=\"#myCarousel-snt\" data-bs-slide-to=\"0\" class=\"\" aria-label=\"Slide 1\"></button><button type=\"button\" data-bs-target=\"#myCarousel-snt\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\" class=\"active\" aria-current=\"true\"></button><button type=\"button\" data-bs-target=\"#myCarousel-snt\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\" class=\"\"></button></div><div class=\"carousel-inner\"><div class=\"carousel-item active carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item carousel-item-next carousel-item-start\"><img src=\"./images/banner1.jpg\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner1.jpg\"><\/div></div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#myCarousel-snt\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#myCarousel-snt\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div></div>",
     "property": {
       "fullscreen": false
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#myCarousel-snt .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-snt .carousel-item img"
+      },
+      {
+        "parent_div": "#myCarousel-snt .carousel-item img"
+      }
+    ]
   },
   {
     "name": "Header",
@@ -156,34 +204,90 @@
     "html": "<div class='container'><div id=\"carouselExampleFade\" class=\"carousel slide carousel-fade\" data-bs-ride=\"carousel\"><div class=\"carousel-inner\"><div class=\"carousel-item active\"><img src=\"./images/banner1.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner3.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><div class=\"carousel-item\"><img src=\"./images/banner2.jpg\" class=\"d-block w-100\" alt=\"banner\"><\/div><\/div><button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleFade\" data-bs-slide=\"prev\"><span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Previous<\/span><\/button><button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleFade\" data-bs-slide=\"next\"><span class=\"carousel-control-next-icon\" aria-hidden=\"true\"><\/span><span class=\"visually-hidden\">Next<\/span><\/button><\/div></div>",
     "property": {
       "fullscreen": false
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#carouselExampleFade .carousel-item img"
+      },
+      {
+        "parent_div": "#carouselExampleFade .carousel-item img"
+      },
+      {
+        "parent_div": "#carouselExampleFade .carousel-item img"
+      }
+    ]
   },
   {
     "name": "Feature",
     "type": "6-items",
-    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/7.svg\" alt=\"7\"><h4 class=\"mb-3 text-10\">Responsive Design</h4><p class=\"mb-0 text-11\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/8.svg\" alt=\"8\"><h4 class=\"mb-3 text-12\">Responsive Design</h4><p class=\"mb-0 text-13\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "html": "<div class=\"container\" id=\"feature-6-item\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/7.svg\" alt=\"7\"><h4 class=\"mb-3 text-10\">Responsive Design</h4><p class=\"mb-0 text-11\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/8.svg\" alt=\"8\"><h4 class=\"mb-3 text-12\">Responsive Design</h4><p class=\"mb-0 text-13\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
     "property": {
       "bordered": false,
       "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3", "Responsive Design 4", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 4", "Responsive Design 5", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 5", "Responsive Design 6", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 6"]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      },
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      },
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      },
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      },
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      },
+      {
+        "parent_div": "#feature-6-item .icon-feature img"
+      }
+    ]
   },
   {
     "name": "Feature",
     "type": "4-items",
-    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 mw-400 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 mw-400 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 mw-400 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 mw-400 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "html": "<div class=\"container feature-4-item\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 mw-400 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 mw-400 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 mw-400 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-6 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/6.svg\" alt=\"6\"><h4 class=\"mb-3 text-8\">Responsive Design</h4><p class=\"mb-0 mw-400 text-9\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
     "property": {
       "bordered": false,
       "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3", "Responsive Design 4", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 4"]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": ".feature-4-item .icon-feature img"
+      },
+      {
+        "parent_div": ".feature-4-item .icon-feature img"
+      },
+      {
+        "parent_div": ".feature-4-item .icon-feature img"
+      },
+      {
+        "parent_div": ".feature-4-item .icon-feature img"
+      }
+    ]
   },
   {
     "name": "Feature",
     "type": "3-items",
-    "html": "<div class=\"container\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
+    "html": "<div class=\"container feature-3-item\"><h2 class='mt-5 text-uppercase text-center text-1'>Features</h2><div class=\"row\"><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/1.svg\" alt=\"1\"><h4 class=\"mb-3 text-2\">Responsive Design</h4><p class=\"mb-0 text-3\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/2.svg\" alt=\"2\"><h4 class=\"mb-3 text-4\">Responsive Design</h4><p class=\"mb-0 text-5\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div><div class=\"col-sm-12 col-md-4 item-feature\"><div class=\"icon-feature mb-2\"><img src=\"./images/3.svg\" alt=\"3\"><h4 class=\"mb-3 text-6\">Responsive Design</h4><p class=\"mb-0 text-7\">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat.</p></div></div></div></div>",
     "property": {
       "bordered": false,
       "text": ["Feature", "Responsive Design 1", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 1", "Responsive Design 2", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 2","Responsive Design 3", "Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat. 3"]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": ".feature-3-item .icon-feature img"
+      },
+      {
+        "parent_div": ".feature-3-item .icon-feature img"
+      },
+      {
+        "parent_div": ".feature-3-item .icon-feature img"
+      }
+    ]
   },
    {
     "name": "Products",
@@ -328,12 +432,46 @@
     "html": "<div class=\"container mb-40 te1\"><h3 class=\"mt-5 text-center text-1\"> Khách hàng nói gì về chúng tôi</h3><p class=\"text-center mb-5 text-2\"> Hoạt động hơn 6 năm và được hàng triệu khách hàng tại Việt Nam tin dùng</p><div class=\"row\"><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-3\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-4\">Liam Neeson</h4><h6 class=\"text-5\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-6\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-7\">Liam Neeson</h4><h6 class=\"text-8\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class \"content-testimon\"><blockquote class=\"text-9\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text10\">Liam Neeson</h4><h6 class=\"text-11\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-12\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-13\">Liam Neeson</h4><h6 class=\"text-14\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-15\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-16\">Liam Neeson</h4><h6 class=\"text-17\">CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-4 col-md-6 col-xs-12\"><div class=\"wrapper-testimon\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"><div class=\"content-testimon\"><blockquote class=\"text-18\">The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.</blockquote><h4 class=\"text-19\">Liam Neeson</h4><h6 class=\"text-20\">CEO, Blue Web Design</h6></div></div></div></div></div>",
     "property": {
       "text": ["Khách hàng nói gì về chúng tôi", "Hoạt động hơn 6 năm và được hàng triệu khách hàng tại Việt Nam tin dùng", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design", "The support team is really cool. They solved my problem like in-house developer. Thanks for this awesome template.", "Liam Neeson", "CEO, Blue Web Design"]
-    }
+    },
+    "map_images": [
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      },
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      },
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      },
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      },
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      },
+      {
+        "parent_div": ".tel1 .wrapper-testimon img"
+      }
+    ]
   },
   {
     "name": "Team",
     "type": "normal",
     "html": "<div class=\"container mb-40 tm1\"><h3 class=\"mt-5 text-center\">Thành viên</h3><div class=\"row\"><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div><div class=\"col-xl-3 col-md-6 col-xs-12 mb-5\"><div class=\"wrapper-team\"><div class=\"wrapper-team-image mg-auto\"><img src=\"https://prium.github.io/slick/assets/images/portraits/square/10.jpg\"></div><div class=\"content-team text-center mt-3\"><h4>Liam Neeson</h4><h6>CEO, Blue Web Design</h6></div></div></div></div></div>",
-    "property": {}
+    "property": {},
+    "map_images": [
+      {
+        "parent_div": ".tm1 .wrapper-team-image img"
+      },
+      {
+        "parent_div": ".tm1 .wrapper-team-image img"
+      },
+      {
+        "parent_div": ".tm1 .wrapper-team-image img"
+      },
+      {
+        "parent_div": ".tm1 .wrapper-team-image img"
+      }
+    ]
   }
 ]

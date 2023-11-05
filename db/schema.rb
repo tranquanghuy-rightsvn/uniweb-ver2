@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_28_153214) do
+ActiveRecord::Schema.define(version: 2023_11_03_054740) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 2023_10_28_153214) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["website_id"], name: "index_categories_on_website_id"
+  end
+
+  create_table "map_images", charset: "utf8mb4", force: :cascade do |t|
+    t.string "image"
+    t.bigint "website_id"
+    t.string "element_name"
+    t.string "parent_div"
+    t.string "page_name"
+    t.integer "order"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["website_id"], name: "index_map_images_on_website_id"
   end
 
   create_table "maps", charset: "utf8mb4", force: :cascade do |t|
@@ -109,9 +121,11 @@ ActiveRecord::Schema.define(version: 2023_10_28_153214) do
   end
 
   create_table "products", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
+    t.string "url"
     t.integer "price"
     t.text "description"
+    t.string "refer_ids", default: "[]"
     t.bigint "user_id"
     t.bigint "website_id", null: false
     t.bigint "category_id"

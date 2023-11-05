@@ -1,0 +1,27 @@
+<% @website.map_images.group_by{|map| map.page_name}.map do |key, value| %>
+  <h2><%= key %></h2>
+  <% value.group_by{|val| val.element_name }.map do |k, v| %>
+    <h5> <%= k %> </h5>
+    <% v.map.with_index do |ele, i| %>
+      <%= form_for(ele, url: map_image_path(ele), method: :patch) do |form| %>
+        <div class="form-group-custom">
+          <%= "#{i + 1}." %>
+          <%= form.file_field :image, class: "form-control" %>
+          <%= form.submit "Cập nhật", class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+      <% if ele.image.present? %>
+        <!--  handle image -->
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<style type="text/css">
+  .form-group-custom{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+</style>

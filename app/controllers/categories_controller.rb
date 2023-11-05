@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
-  before_action :check_owner_website
+  before_action :check_manage_website, :load_website
 
   def create
     @category = Category.new(category_params.merge(website_id: params[:website_id], editable: true))
     @category.save
-
-    redirect_to website_categories_path(website_id: params[:website_id])
+    flash[:success] = "Tạo thành công"
+    redirect_to website_categories_path(website_id: params[:website_id], type: params[:type])
   end
 
   def index
@@ -23,5 +23,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit :name, :category_type
+  end
+
+  def load_website
+    @website = Website.find_by id: params[:website_id]
   end
 end

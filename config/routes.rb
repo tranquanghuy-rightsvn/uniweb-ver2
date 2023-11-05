@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :websites do
-    member do
-      get :analytic
-    end
+    get :analytic
+    get :general
+    get :images
+    get :domain
     resources :posts, except: :show
+    resources :products, except: :show
     resources :users, except: [:show, :edit, :update]
     resources :categories
   end
+
+  resources :map_images, only: :update
 
   resources :attachments, only: [] do
     post :resize, on: :collection

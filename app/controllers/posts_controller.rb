@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :check_manage_website
+  before_action :check_manage_website, :load_website
   before_action :load_post, only: [:show, :create, :edit, :update, :destroy]
 
   def new
@@ -52,5 +52,9 @@ class PostsController < ApplicationController
 
   def load_post
     @post = Post.find_by(website_id: params[:website_id], id: params[:id])
+  end
+
+  def load_website
+    @website = Website.find_by id: params[:website_id]
   end
 end

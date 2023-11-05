@@ -73,7 +73,7 @@ body {
 
 #alert{
   position: fixed;
-  top: 10px;
+  top: 60px;
   right: 20px;
   width: 300px;
 }

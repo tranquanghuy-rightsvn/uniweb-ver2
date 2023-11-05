@@ -5,16 +5,14 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Email</th>
         <th scope="col">Role</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      <% @users.order(id: :desc).map do |user| %>
+      <% @users.map do |user| %>
         <tr>
-          <th scope="row"><%= user.id %></th>
           <td><%= user.email %></td>
           <td><%= user.role_in_website(params[:website_id]) %></td>
           <td>
