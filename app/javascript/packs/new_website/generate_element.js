@@ -57,15 +57,14 @@ export function generate_menu(page, ele, index){
       let container = $('.' + parent + ' .container-fluid')
       container.removeClass('container-fluid');
       container.addClass('container');
-    }
+     }
   }
 
   if ('searchable' in ele.property) {
     let checked = ele.property.searchable
     let parent = 'uni-' + convertTitle(page.page) + "-" + index
-
     if(checked) {
-      $('.' + parent + ' .uni-searchable').html('<form class="d-flex mb-0"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" type="submit">Search</button></form>')
+      $('.' + parent + ' .uni-searchable').html('<form class="d-flex mb-0"><input class="form-control me-2" id="formSearchNav" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" onclick="search_nav()" type="button">Search</button></form>')
     } else {
       $('.' + parent + ' .uni-searchable').html('')
     }

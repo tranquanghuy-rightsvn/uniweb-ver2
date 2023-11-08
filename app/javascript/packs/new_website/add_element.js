@@ -121,7 +121,7 @@ function add_toolbar(){
 
 		if(this.checked) {
 			element.property.searchable = true
-			$('.' + parent + ' .uni-searchable').html('<form class="d-flex mb-0"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" type="submit">Search</button></form>')
+			$('.' + parent + ' .uni-searchable').html('<form class="d-flex mb-0"><input class="form-control me-2" id="formSearchNav" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" onclick="search_nav()" type="button">Search</button></form>')
 		} else {
 			element.property.searchable = false
 			$('.' + parent + ' .uni-searchable').html('')

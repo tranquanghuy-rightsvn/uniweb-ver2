@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   include RenderHtml
+  searchkick
 
   mount_uploader :image, PostUploader
   has_rich_text :content
@@ -7,6 +8,7 @@ class Post < ApplicationRecord
   belongs_to :website
   belongs_to :category, optional: true
   validates :url, presence: true, uniqueness: { scope: :website_id }
+  validates :image, presence: true
 
   after_create_commit :create_file
   after_update_commit :update_file
@@ -22,6 +24,15 @@ class Post < ApplicationRecord
 
   def time_publish
     "Đăng lúc #{(created_at + 7 *3600).strftime("%H:%M %d/%m/%Y")}"
+  end
+
+  def search_data
+    {
+      title: title,
+      description: description,
+      content: content,
+      website_id: website_id.to_s
+    }
   end
 
   private

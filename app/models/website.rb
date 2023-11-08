@@ -62,6 +62,8 @@ class Website < ApplicationRecord
       File.write(page.url, content)
     end
 
+    File.write('search.html', RenderHtml.render_search_page(self))
+
     File.write('sitemaps.xml', sitemap_xml)
   end
 end

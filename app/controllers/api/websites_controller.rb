@@ -7,7 +7,7 @@ module Api
 
       repo = Repo.available.first
       website = Website.new(repo: repo, title: params_website["title"],
-        description: params_website["description"], name: params_website["name"])
+        description: params_website["description"], name: params_website["name"], resources: params_website["resources"])
       website.user_website_roles.new(user_id: Encrypt.decrypt(params_website[:user_id]), role: 1)
 
       pages.map do |page|

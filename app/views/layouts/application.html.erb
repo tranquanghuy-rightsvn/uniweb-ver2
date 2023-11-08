@@ -60,164 +60,172 @@
       </div>
 
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <% if current_user.is_own_website?(params[:website_id]) %>
-            <li class="nav-item">
-              <a href="<%= website_analytic_path(@website) %>" class="nav-link<%= params[:action] == 'analytic' ? ' active' : '' %>">
-                <i class="nav-icon fas fa-chart-pie"></i>
+        <% if @website.present? %>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <% if current_user.is_own_website?(params[:website_id]) %>
+              <li class="nav-item">
+                <a href="<%= website_analytic_path(@website) %>" class="nav-link<%= params[:action] == 'analytic' ? ' active' : '' %>">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Thống kê số liệu
+                  </p>
+                </a>
+              </li>
+            <% end %>
+
+            <li class="nav-item <%= params[:controller] == 'websites' && (params[:action] == 'general' || params[:action] == 'images') ? ' menu-open' : '' %>">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Thống kê số liệu
+                  Cài đặt website
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<%= website_general_path(@website) %>" class="nav-link<%= params[:action] == 'general' ? ' active' : '' %>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thông tin chung</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<%= website_images_path(@website) %>" class="nav-link<%= params[:action] == 'images' ? ' active' : '' %>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ảnh trên website</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Cửa hàng</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <% resources = JSON.parse(@website.resources) %>
+
+            <% if resources.include?('post') %>
+              <li class="nav-item<%= params[:controller] == 'posts' || (params[:controller] == 'categories' && params[:type] == 'post') ? ' menu-open' : '' %>">
+                <a href="" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Bài viết
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<%= website_categories_path(website_id: @website.id, type: 'post') %>" class="nav-link<%= params[:controller] == 'categories' && params[:type] == 'post' ? ' active' : '' %>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Danh mục</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<%= website_posts_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'posts' ? ' active' : '' %>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tạo/Sửa/Xóa</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+
+            <% if resources.include?('product') %>
+              <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') ? ' menu-open' : '' %>">
+                <a href="" class="nav-link">
+                  <i class="fab fa-product-hunt nav-icon"></i>
+                  <p>
+                    Sản phẩm
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<%= website_categories_path(website_id: @website.id, type: 'product') %>" class="nav-link<%= params[:controller] == 'categories' && params[:type] == 'product' ? ' active' : '' %>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Danh mục</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<%= website_products_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'products' ? ' active' : '' %>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tạo/Sửa/Xóa</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Đơn hàng</p>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+
+            <li class="nav-item<%= params[:controller] == 'users' ? ' menu-open' : '' %>">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Người dùng
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<%= website_users_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'users' ? ' active' : '' %>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Quản trị viên</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Người dùng</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item mb-5">
+              <a href="<%= website_domain_path(website_id: @website.id) %>" class="nav-link<%= params[:action] == 'domain' ? ' active' : '' %>">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Tên miền
                 </p>
               </a>
             </li>
-          <% end %>
 
-          <li class="nav-item <%= params[:controller] == 'websites' && (params[:action] == 'general' || params[:action] == 'images') ? ' menu-open' : '' %>">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Cài đặt website
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= website_general_path(@website) %>" class="nav-link<%= params[:action] == 'general' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thông tin chung</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<%= website_images_path(@website) %>" class="nav-link<%= params[:action] == 'images' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ảnh trên website</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cửa hàng</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+            <li class="nav-item mt-5">
+              <a href="#" class="nav-link">
+                <p>
+                  <%= current_user.email.truncate(22) %>
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <%= link_to "<i class='fas fa-sign-out-alt nav-icon'></i><p>Đăng xuất</p>".html_safe, destroy_user_session_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <a href="<%= new_website_path %>" class="nav-link">
+                    <i class="fas fa-plus-square nav-icon"></i>
+                    <p>Tạo website mới</p>
+                  </a>
+                </li>
 
-          <li class="nav-item<%= params[:controller] == 'posts' || (params[:controller] == 'categories' && params[:type] == 'post') ? ' menu-open' : '' %>">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Bài viết
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= website_categories_path(type: 'post') %>" class="nav-link<%= params[:controller] == 'categories' && params[:type] == 'post' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<%= website_posts_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'posts' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo/Sửa/Xóa</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') ? ' menu-open' : '' %>">
-            <a href="" class="nav-link">
-              <i class="fab fa-product-hunt nav-icon"></i>
-              <p>
-                Sản phẩm
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= website_categories_path(type: 'product') %>" class="nav-link<%= params[:controller] == 'categories' && params[:type] == 'product' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Danh mục</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<%= website_products_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'products' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo/Sửa/Xóa</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Đơn hàng</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item<%= params[:controller] == 'users' ? ' menu-open' : '' %>">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Người dùng
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= website_users_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'users' ? ' active' : '' %>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản trị viên</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Người dùng</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item mb-5">
-            <a href="<%= website_domain_path(website_id: @website.id) %>" class="nav-link<%= params[:action] == 'domain' ? ' active' : '' %>">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Tên miền
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item mt-5">
-            <a href="#" class="nav-link">
-              <p>
-                <%= current_user.email.truncate(22) %>
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <%= link_to "<i class='fas fa-sign-out-alt nav-icon'></i><p>Đăng xuất</p>".html_safe, destroy_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <a href="<%= new_website_path %>" class="nav-link">
-                  <i class="fas fa-plus-square nav-icon"></i>
-                  <p>Tạo website mới</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-envelope nav-icon"></i>
-                  <p>Liên hệ với Admin</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-envelope nav-icon"></i>
+                    <p>Liên hệ với Admin</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
       </nav>
     </div>
   </aside>
