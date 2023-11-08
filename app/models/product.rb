@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  searchkick
   belongs_to :website
   belongs_to :category, optional: true # sẽ bỏ optional trong tương lai
   has_many :product_images, inverse_of: :product
@@ -16,6 +17,15 @@ class Product < ApplicationRecord
 
   def real_content
     content.body.to_s.gsub(/<action-text-attachment[^>]*>[^<]*<\/action-text-attachment>/, '')
+  end
+
+  def search_data
+    {
+      title: title,
+      description: description,
+      content: content,
+      website_id: website_id.to_s
+    }
   end
 
   private

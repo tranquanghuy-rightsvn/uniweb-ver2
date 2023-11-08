@@ -9,6 +9,7 @@ class CreateWebsites < ActiveRecord::Migration[6.1]
       t.string :province
       t.string :logo
       t.string :icon
+      t.string :resources
 
       t.timestamps
     end

@@ -4,7 +4,13 @@ module Encrypt
     @@crypt = ActiveSupport::MessageEncryptor.new(key)
 
     def encrypt string
-      @@crypt.encrypt_and_sign string
+      encrypted_string = @@crypt.encrypt_and_sign(string)
+
+      while encrypted_string.include?("+") do
+        encrypted_string = @@crypt.encrypt_and_sign(string)
+      end
+
+      encrypted_string
     end
 
     def decrypt string

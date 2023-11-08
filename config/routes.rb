@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :websites, only: :create
+    resources :search, only: :index
   end
 end

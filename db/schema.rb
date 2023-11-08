@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 2023_11_03_054740) do
     t.string "province"
     t.string "logo"
     t.string "icon"
+    t.string "resources"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

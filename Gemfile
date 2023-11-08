@@ -25,6 +25,8 @@ gem 'google-api-client'
 gem 'redis'
 gem 'redis-client'
 gem 'sidekiq'
+gem 'elasticsearch', '7.0.0.pre'
+gem 'searchkick'
 
 # deploy
 gem 'capistrano'
