@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_10_061822) do
+ActiveRecord::Schema.define(version: 2023_11_11_065421) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2023_11_10_061822) do
   create_table "banks", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "store_id"
     t.string "qr_code"
+    t.string "bank_name"
     t.string "account_name"
     t.string "account_number"
     t.string "account_branch"
@@ -95,6 +96,30 @@ ActiveRecord::Schema.define(version: 2023_11_10_061822) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["website_id"], name: "index_maps_on_website_id"
+  end
+
+  create_table "order_products", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
+  end
+
+  create_table "orders", charset: "utf8mb4", force: :cascade do |t|
+    t.string "order_code"
+    t.string "province"
+    t.integer "status", default: 0, null: false
+    t.string "address"
+    t.string "phone_number"
+    t.text "note"
+    t.integer "total_price"
+    t.bigint "store_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_orders_on_store_id"
   end
 
   create_table "pages", charset: "utf8mb4", force: :cascade do |t|

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :products, except: :show
     resources :users, except: [:show, :edit, :update]
     resources :categories
+    resources :orders, only: [:show, :index, :update]
   end
 
   resources :map_images, only: :update
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :websites, only: :create
     resources :search, only: :index
+    resources :orders, only: :create
   end
 end
