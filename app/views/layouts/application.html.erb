@@ -134,7 +134,7 @@
             <% end %>
 
             <% if resources.include?('product') %>
-              <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') ? ' menu-open' : '' %>">
+              <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') || params[:controller] == 'orders' ? ' menu-open' : '' %>">
                 <a href="" class="nav-link">
                   <i class="fab fa-product-hunt nav-icon"></i>
                   <p>
@@ -158,7 +158,7 @@
                   </li>
 
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<%= website_orders_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'orders' ? ' active' : '' %>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Đơn hàng</p>
                     </a>

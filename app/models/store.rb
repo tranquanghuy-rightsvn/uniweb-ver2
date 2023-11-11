@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   belongs_to :website
   has_many :banks
+  has_many :orders
 
   after_update_commit :update_cart_html
 
