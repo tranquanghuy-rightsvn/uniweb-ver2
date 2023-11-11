@@ -13,7 +13,7 @@ class WebsiteLogoUploader < CarrierWave::Uploader::Base
     "../../projects/#{model.repo.path}/images"
   end
 
-  def filename
+  def full_filename file
     "logo.png"
   end
 

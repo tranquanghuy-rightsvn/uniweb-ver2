@@ -9,6 +9,7 @@ class Website < ApplicationRecord
   has_many :pages
   has_many :maps
   has_many :categories
+  has_one :store
 
   has_many :user_website_managers, -> { where(role: 0) }, class_name: 'UserWebsiteRole'
   has_many :managers, through: :user_website_managers, source: :user
@@ -23,7 +24,7 @@ class Website < ApplicationRecord
   has_one :repo_website
   has_one :repo, through: :repo_website
 
-  after_create :generate_folder
+  after_create :generate_folder, :create_store
 
   def menu
     Nokogiri.HTML(pages.first.html).at_css('nav').to_s.gsub("opacity-menu", "")
@@ -62,8 +63,15 @@ class Website < ApplicationRecord
       File.write(page.url, content)
     end
 
-    File.write('search.html', RenderHtml.render_search_page(self))
+    File.write('search.html', RenderHtml.render_search_page(self)) if menu.include?('uni-searchable')
+    File.write('cart.html', RenderHtml.render_cart_page(self)) if JSON.parse(resources).include?('product')
 
     File.write('sitemaps.xml', sitemap_xml)
+  end
+
+  def create_store
+    if JSON.parse(resources).include?('product')
+      Store.create!(website_id: id)
+    end
   end
 end

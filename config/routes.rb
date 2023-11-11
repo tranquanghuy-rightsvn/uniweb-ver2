@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get :general
     get :images
     get :domain
+    get :store
+    patch :store, to: 'stores#update_store'
     resources :posts, except: :show
     resources :products, except: :show
     resources :users, except: [:show, :edit, :update]
@@ -16,9 +18,10 @@ Rails.application.routes.draw do
   end
 
   resources :map_images, only: :update
-
-  resources :attachments, only: [] do
-    post :resize, on: :collection
+  resources :stores, only: [] do
+    member do
+      resources :banks, only: [:create, :update]
+    end
   end
 
   namespace :api do
