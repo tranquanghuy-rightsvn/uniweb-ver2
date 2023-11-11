@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_rich_text :content
 
   validates :url, presence: true, uniqueness: { scope: :website_id }
-
+  validates :price , :title, :description, presence: true
   validate :must_have_image
 
   accepts_nested_attributes_for :product_images
@@ -17,6 +17,14 @@ class Product < ApplicationRecord
 
   def real_content
     content.body.to_s.gsub(/<action-text-attachment[^>]*>[^<]*<\/action-text-attachment>/, '')
+  end
+
+  def formated_price
+    price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse
+  end
+
+  def encrypt_id
+    Encrypt.encrypt("{\"product_id\": #{id}}")
   end
 
   def search_data
