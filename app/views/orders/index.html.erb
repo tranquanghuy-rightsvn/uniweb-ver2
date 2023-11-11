@@ -1,0 +1,30 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Mã Order</th>
+      <th scope="col">Địa chỉ</th>
+      <th scope="col">Tổng tiền (VND)</th>
+      <th scope="col">Trạng thái</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.map do |order| %>
+      <tr>
+        <td><%= order.order_code %></td>
+        <td><%= order.address %></td>
+        <td><%= order.formated_total_price %></td>
+        <td><%= display_status_order(order.status) %></td>
+        <td>
+          <%= link_to "<button class='btn btn-primary text-light'>Xem</button>".html_safe, website_order_path(website_id: params[:website_id], id: order.id) %>
+          <% if order.new_order? %>
+            <%= link_to "<button class='btn btn-warning'>Giao hàng</button>".html_safe, website_order_path(website_id: params[:website_id], id: order.id, status: "deliver", is_index: true), method: :patch %>
+          <% end %>
+          <% unless order.rejected? %>
+            <%= link_to "<button class='btn btn-danger'>Hủy</button>".html_safe, website_order_path(website_id: params[:website_id], id: order.id, status: "rejected", is_index: true), method: :patch %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   belongs_to :category, optional: true
   validates :url, presence: true, uniqueness: { scope: :website_id }
   validates :image, presence: true
+  validates :title, :description, presence: true
 
   after_create_commit :create_file
   after_update_commit :update_file

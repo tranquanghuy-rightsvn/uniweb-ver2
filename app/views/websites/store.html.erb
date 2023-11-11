@@ -1,0 +1,112 @@
+<%= form_for(@store, url: website_store_path(website_id: @website.id), method: :patch) do |form| %>
+  <div id="error_explanation">
+    <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="form-group">
+    <label> Tỉnh/thành xuất phát giao hàng </label>
+    <div class="input-group">
+      <select class="form-select" id="provinces_vietname">
+
+      </select>
+      <button class="btn btn-primary" type="button" onclick="add_province()">Thêm</button>
+    </div>
+    <div id="display_provinces">
+
+    </div>
+    <%= form.hidden_field :provinces, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label> Giá ship nội thành </label>
+    <%= form.number_field :inner_province, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label> Giá ship ngoại thành </label>
+    <%= form.number_field :outer_province, class: "form-control" %>
+  </div>
+  <div class="button-create">
+    <%= form.submit "Cập nhật", class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<script>
+  let pros = ['','Hồ Chí Minh', 'Hà Nội', 'Đà Nẵng', 'Bình Dương', 'Sóc Trăng', 'Kon Tum', 'Quảng Bình', 'Quảng Trị', 'Trà Vinh', 'Hậu Giang', 'Sơn La', 'Bạc Liêu', 'Yên Bái', 'Tuyên Quang', 'Điện Biên', 'Lai Châu', 'Lạng Sơn', 'Hà Giang', 'Bắc Kạn', 'Cao Bằng', 'Bắc Giang', 'Hòa Bình', 'An Giang', 'Vĩnh Phúc', 'Tây Ninh', 'Thái Nguyên', 'Lào Cai', 'Nam Định', 'Quảng Ngãi', 'Bến Tre', 'Đắk Nông', 'Cà Mau', 'Vĩnh Long', 'Ninh Bình', 'Phú Thọ', 'Ninh Thuận', 'Phú Yên', 'Hà Nam', 'Hà Tĩnh', 'Đồng Tháp', 'Đồng Nai', 'Khánh Hòa', 'Hải Phòng', 'Long An', 'Quảng Nam', 'Bà Rịa Vũng Tàu', 'Đắk Lắk', 'Cần Thơ', 'Bình Thuận', 'Lâm Đồng', 'Thừa Thiên Huế', 'Kiên Giang', 'Bắc Ninh', 'Quảng Ninh', 'Thanh Hóa', 'Nghệ An', 'Hải Dương', 'Gia Lai', 'Bình Phước', 'Hưng Yên', 'Bình Định', 'Tiền Giang', 'Thái Bình']
+
+  html = ''
+
+  pros.forEach((pro) => {
+    html += "<option>" + pro +"</option>"
+  })
+  document.getElementById('provinces_vietname').innerHTML = html
+
+  let provincess = JSON.parse(document.getElementById('store_provinces').value)
+
+  phtml = ''
+  provincess.forEach((pro) => {
+    phtml += "<div class='province-group'><span class='province_item'>" + pro + "</span><button class='btn btn-x' type='button' onclick='remove_province(this)'>⨯</button></div>"
+  })
+
+  document.getElementById('display_provinces').innerHTML = phtml
+
+  function add_province(){
+    let current_province = document.getElementById('provinces_vietname').value
+
+    if(!provincess.includes(current_province)){
+      provincess.push(current_province)
+
+      document.getElementById('store_provinces').value = JSON.stringify(provincess)
+
+      document.getElementById('display_provinces').innerHTML += "<div class='province-group'><span class='province_item'>" + current_province + "</span><button class='btn btn-x' type='button' onclick='remove_province(this)'>⨯</button></div>"
+    }
+  }
+
+  function remove_province(button){
+    var divElement = button.closest('.province-group');
+    let province = button.closest('.province-group').querySelector('.province_item').innerText
+    divElement.remove();
+    provincess.forEach((p, i) => {
+     if(p == province){
+      provincess.splice(i, 1)
+     }
+    })
+    document.getElementById('store_provinces').value = JSON.stringify(provincess)
+  }
+</script>
+
+<style>
+  #display_provinces{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .province_item{
+    border: 1px solid #222;
+    border-right: none;
+    padding: 5px;
+  }
+
+  .btn-x{
+    border: 1px solid #222;
+    border-left: none;
+    color: red;
+    border-radius: 0;
+  }
+
+  .btn-x:hover{
+    border: 1px solid #222;
+    border-left: none;
+  }
+
+  .province-group{
+    display: flex;
+    gap: 0;
+  }
+</style>

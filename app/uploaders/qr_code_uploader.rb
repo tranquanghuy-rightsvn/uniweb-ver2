@@ -1,4 +1,4 @@
-class WebsiteIconUploader < CarrierWave::Uploader::Base
+class QrCodeUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -10,11 +10,7 @@ class WebsiteIconUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "../../projects/#{model.repo.path}/images"
-  end
-
-  def full_filename file
-    "favicon.ico"
+    "../../projects/#{model.store.website.repo.path}/images/qrcode/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -26,7 +22,7 @@ class WebsiteIconUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fit: [32, 32]
+  process resize_to_fit: [400, 400]
   #
   # def scale(width, height)
   #   # do something
@@ -39,9 +35,9 @@ class WebsiteIconUploader < CarrierWave::Uploader::Base
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_allowlist
-    %w(ico)
-  end
+  # def extension_allowlist
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

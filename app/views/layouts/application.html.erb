@@ -73,7 +73,9 @@
               </li>
             <% end %>
 
-            <li class="nav-item <%= params[:controller] == 'websites' && (params[:action] == 'general' || params[:action] == 'images') ? ' menu-open' : '' %>">
+            <% resources = JSON.parse(@website.resources) %>
+
+            <li class="nav-item <%= params[:controller] == 'websites' && (params[:action] == 'general' || params[:action] == 'images' || params[:action] == 'store') ? ' menu-open' : '' %>">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
@@ -94,16 +96,16 @@
                     <p>Ảnh trên website</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Cửa hàng</p>
-                  </a>
-                </li>
+                <% if resources.include?('product') %>
+                  <li class="nav-item">
+                    <a href="<%= website_store_path(website_id: @website.id) %>" class="nav-link<%= params[:action] == 'store' ? ' active' : '' %>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Cửa hàng</p>
+                    </a>
+                  </li>
+                <% end %>
               </ul>
             </li>
-
-            <% resources = JSON.parse(@website.resources) %>
 
             <% if resources.include?('post') %>
               <li class="nav-item<%= params[:controller] == 'posts' || (params[:controller] == 'categories' && params[:type] == 'post') ? ' menu-open' : '' %>">
@@ -132,7 +134,7 @@
             <% end %>
 
             <% if resources.include?('product') %>
-              <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') ? ' menu-open' : '' %>">
+              <li class="nav-item<%= params[:controller] == 'products' || (params[:controller] == 'categories' && params[:type] == 'product') || params[:controller] == 'orders' ? ' menu-open' : '' %>">
                 <a href="" class="nav-link">
                   <i class="fab fa-product-hunt nav-icon"></i>
                   <p>
@@ -156,7 +158,7 @@
                   </li>
 
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<%= website_orders_path(website_id: @website.id) %>" class="nav-link<%= params[:controller] == 'orders' ? ' active' : '' %>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Đơn hàng</p>
                     </a>

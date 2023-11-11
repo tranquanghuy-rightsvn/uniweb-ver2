@@ -86,7 +86,7 @@ export function generate_menu(page, ele, index){
     let parent = 'uni-' + convertTitle(page.page) + "-" + index
 
     if(checked) {
-      $('.' + parent + ' .uni-cartable').html('<li class="nav-item"><i class="fas fa-shopping-cart"></i></li>')
+      $('.' + parent + ' .uni-cartable').html('<a href="cart.html"><li class="nav-item"><i class="fas fa-shopping-cart"></i></li></a>')
     } else {
       $('.' + parent + ' .uni-cartable').html('')
     }

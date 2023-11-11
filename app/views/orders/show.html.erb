@@ -1,0 +1,27 @@
+<h2> Thông tin đơn hàng </h2>
+<h5><b>1. Địa chỉ </b></h5>
+  <%= @order.address %>
+<h5><b>2. Số điện thoại </b></h5>
+  <%= @order.phone_number %>
+<h5><b>3. Sản phẩm </b></h5>
+  <% @order.order_products.map do |order| %>
+    <p> - <%= order.product.title %> , Số lượng: <%= order.quantity %> </p>
+  <% end %>
+<h5><b>4. Tổng tiền </b></h5>
+  <%= @order.formated_total_price %>
+<h5><b>5. Trạng thái </b></h5>
+  <%= display_status_order @order.status %>
+<br>
+<br>
+<% if @order.new_order? %>
+  <%= link_to "<button class='btn btn-warning'>Giao hàng</button>".html_safe, website_order_path(website_id: params[:website_id], id: @order.id, status: "deliver"), method: :patch %>
+<% end %>
+
+<% unless @order.rejected? %>
+  <%= link_to "<button class='btn btn-danger'>Hủy</button>".html_safe, website_order_path(website_id: params[:website_id], id: @order.id, status: "rejected"), method: :patch %>
+<% end %>
+
+
+<br><br>
+
+<%= link_to "<button class='btn btn-primary'>Quay lại list order </button>".html_safe, website_orders_path(website_id: params[:website_id]) %>

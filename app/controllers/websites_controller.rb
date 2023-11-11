@@ -1,7 +1,7 @@
 class WebsitesController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_owner_website, except: [:new, :analytic, :general, :images, :domain]
-  before_action :check_owner_website_id, only: [:analytic, :general, :images, :domain]
+  before_action :check_owner_website, except: [:new, :analytic, :general, :images, :domain, :store]
+  before_action :check_owner_website_id, only: [:analytic, :general, :images, :domain, :store]
 
   layout "new_website", only: :new
 
@@ -33,13 +33,18 @@ class WebsitesController < ApplicationController
     @website = Website.find_by(id: params[:id])
 
     if @website.update params_website
-      @website.update params_website
-
       flash[:success] = "Cập nhật thành công"
+
       redirect_to website_general_path(@website)
     else
       render :general
     end
+  end
+
+  def store
+    @website = Website.find_by(id: params[:website_id])
+
+    @store = @website.store
   end
 
   private
