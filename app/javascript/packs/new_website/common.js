@@ -135,7 +135,7 @@ export function save_maps(){
   let website = JSON.parse(localStorage.getItem('website'))
   website.map((page) => {
     page.elements.map((ele) => {
-      if(ele.name == 'Posts' || ele.name == 'Products'){
+      if((ele.name == 'Posts' || ele.name == 'Products') && ele.map){
         maps.push({
           type: ele.map.type,
           variant: ele.map.variant,

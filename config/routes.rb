@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     resources :websites, only: :create
     resources :search, only: :index
     resources :orders, only: :create
+    resources :lazyload, only: :index
   end
 end

@@ -3,7 +3,7 @@ module RenderHtml
     def render_default website, page
       "<!DOCTYPE html><html><head><title>" +  website.title + " - "  + page.name + "</title><meta http-equiv=\"Content-Language\" content=\"vi\"><meta charset=\"utf-8\"><meta name=\"copyright\" content=\"Copyright © 2023 by " + website.name + "\"><meta content=\"" + website.description + "\" name=\"abstract\"><meta content=\"" + website.description + "\" name=\"description\"><meta name=\"distribution\" content=\"Global\"><meta name=\"author\" content=\"Websitegiare.co\"><meta name=\"robots\" content=\"index,follow\"><link rel=\"icon\" type=\"image/x-icon\" href=\"./images/favicon.ico\"><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\"><script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js\" integrity=\"sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p\" crossorigin=\"anonymous\"></script><script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js\" integrity=\"sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF\" crossorigin=\"anonymous\"></script>
         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css\" integrity=\"sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
-        <link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"></head><body>" + page.html + "<script src=\"https://code.jquery.com/jquery-3.7.1.slim.min.js\" integrity=\"sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=\" crossorigin=\"anonymous\"></script><script src=\"./index.js\"></script></body></html>"
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\"></head><body>" + page.html + render_signature(website) + "<script src=\"https://code.jquery.com/jquery-3.7.1.js\" integrity=\"sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=\" crossorigin=\"anonymous\"></script><script src=\"./index.js\"></script></body></html>"
 
     end
 
@@ -97,6 +97,26 @@ module RenderHtml
       products.reduce('') do |html, p|
         html << "<div class=\"col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12\"><div class=\"product-card\" data-product=\"#{p.encrypt_id}\"><a href=\"#{p.url}\"><div class=\"product-image\"><img src=\"#{p.product_images.first.image_real_url}\"></div><div class=\"product-information\"><h3>#{p.title}</h3><p>₫ #{p.formated_price}</p></div></a><button class=\"btn btn-outline-danger btn-product\" onclick=\"add_to_cart(this)\"><i class=\"fa-solid fa-cart-plus\"></i> Thêm vào giỏ hàng</button></div></div>"
       end
+    end
+
+    def render_product_all_newest_lazyload_type_1 _website_id, _map, _product
+      "<span></span>"
+    end
+
+    def render_post_lazyload_index_newest_type_1 _website_id, _map, _product
+      "<span></span>"
+    end
+
+    def render_post_lazyload_index_newest_type_2 _website_id, _map, _product
+      "<span></span>"
+    end
+
+    def render_post_lazyload_all_category_type_1 _website_id, _map, _product
+      "<span></span>"
+    end
+
+    def render_product_lazyload_all_category_type_1 _website_id, _map, _product
+      "<span></span>"
     end
 
     private

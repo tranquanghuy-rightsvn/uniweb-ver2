@@ -18,8 +18,8 @@ window.submit_website = function(){
     Array.from($('#all .uni-' + convertTitle(page.page)).children()).map((element) => {
       html += element.innerHTML
     })
-
     pages.push({url: url, html: html, name: page.page})
+
     page.elements.map(function(element, i){
       if(element.map_images){
         element.map_images.map(function(image_map){

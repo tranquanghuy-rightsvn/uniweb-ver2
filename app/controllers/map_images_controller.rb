@@ -4,6 +4,6 @@ class MapImagesController < ApplicationController
     map_image.update! image: params[:map_image][:image]
 
     flash[:success] = "Cập nhật thành công"
-    redirect_to website_path(map_image.website_id)
+    redirect_to website_images_path(map_image.website_id)
   end
 end
