@@ -4,7 +4,6 @@ module Api
       pages = JSON.parse(params_website[:pages])
       maps = JSON.parse(params_website[:maps].presence || "[]")
       map_images = JSON.parse(params_website[:map_images])
-
       repo = Repo.available.first
       website = Website.new(repo: repo, title: params_website["title"],
         description: params_website["description"], name: params_website["name"], resources: params_website["resources"])
