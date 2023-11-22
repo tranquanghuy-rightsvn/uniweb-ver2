@@ -10,6 +10,7 @@ class Website < ApplicationRecord
   has_many :maps
   has_many :categories
   has_one :store
+  has_one :google_api_credential
 
   has_many :user_website_managers, -> { where(role: 0) }, class_name: 'UserWebsiteRole'
   has_many :managers, through: :user_website_managers, source: :user

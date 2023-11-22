@@ -1,6 +1,115 @@
 <div class="container">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="main">
+                <div class="charts">
+                    <div class="chart">
+                        <h2>Views</h2>
+                        <span>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Setting Analytic
+                            </button>
 
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                                    <div class="modal-content" style="min-width: 1000px;">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                        <%= form_for(@google_api_credential, url: website_setting_analytic_path(website_id: @website.id), method: :patch) do |form| %>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <label>Project ID</label>
+                                                    <input type="text" class="form-control" name="project_id" value=<%= @google_api_credential.project_id %>>
+                                                </div>
+                                                <div>
+                                                    <label>Private Key ID</label>
+                                                    <input type="text" class="form-control" name="private_key_id" value=<%= @google_api_credential.private_key_id %>>
+                                                </div>
+                                                <div>
+                                                    <label>Private key</label>
+                                                    <input type="text" class="form-control" name="private_key" value=<%= @google_api_credential.private_key %>>
+                                                </div>
+                                                <div>
+                                                    <label>Client Email</label>
+                                                    <input type="text" class="form-control" name="client_email" value=<%=@google_api_credential.client_email %>>
+                                                </div>
+                                                <div>
+                                                    <label>Client ID</label>
+                                                    <input type="text" class="form-control" name="client_id" value=<%=@google_api_credential.client_id %>>
+                                                </div>
+                                                <div>
+                                                    <label>Property ID</label>
+                                                    <input type="text" class="form-control" name="property_id" value=<%=@google_api_credential.property_id %>>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">Update Google Analytic</button>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <div>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Page title and screen class</th>
+                        <th scope="col">Views</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% JSON.parse(@google_api_credential.top_posts).map do |post| %>
+                    <tr>
+                        <th scope="row"><%= post["page_title"] %></th>
+                        <td><%= post["views"] %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">COUNTRY</th>
+                        <th scope="col">USERS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% JSON.parse(@google_api_credential.top_countries).map do |country| %>
+                        <tr>
+                            <th scope="row"><%= country["country_name"] %></th>
+                            <td><%= country["views"] %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -10,3 +119,34 @@
   ga('create', '410439060', 'https://websitegiare.co');
   ga('send', 'pageview');
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<%= javascript_tag do %>
+  var ctx = document.getElementById('lineChart').getContext('2d');
+  var sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+
+  var labels = [];
+  for (var i = 0; i < 7; i++) {
+    labels.push(sevenDaysAgo.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() + 1);
+  }
+
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '',
+        data: <%= @google_api_credential.number_of_views.values %>,
+        backgroundColor: [
+          'rgba(85, 85, 85, 1)'
+        ],
+        borderColor: 'rgb(41, 155, 99)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+<% end %>
