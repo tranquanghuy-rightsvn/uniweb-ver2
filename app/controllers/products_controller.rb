@@ -45,11 +45,11 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit :title, :description, :price, :url, :refer_ids, :content, :category_id, product_images_attributes: [:image]
+    params.require(:product).permit :title, :description, :price, :url, :refer_ids, :content, :category_id, :keywords, product_images_attributes: [:image]
   end
 
   def product_update_params
-    params.require(:product).permit :title, :description, :price, :refer_ids, :content, :category_id, product_images_attributes: [:image]
+    params.require(:product).permit :title, :description, :price, :refer_ids, :content, :category_id, :keywords, product_images_attributes: [:image]
   end
 
   def load_product

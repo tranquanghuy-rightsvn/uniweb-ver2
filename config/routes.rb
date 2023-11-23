@@ -31,4 +31,9 @@ Rails.application.routes.draw do
     resources :orders, only: :create
     resources :lazyload, only: :index
   end
+
+  namespace :superadmin do
+    resources :websites, only: :index
+    resources :repos
+  end
 end

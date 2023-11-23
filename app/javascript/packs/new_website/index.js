@@ -124,6 +124,14 @@ window.delete_item = function(button){
     website = [website[0]]
   }
 
+  if(element_delete_name == "Footer"){
+    website.map((p) => {
+      if(p.page == page_name) return
+
+      p.elements.splice((p.elements.length - 1), 1)
+    })
+  }
+
   save_website(website)
   build_console()
   build_toolbar()

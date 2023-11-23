@@ -37,6 +37,12 @@
     </div>
 
     <div class="form-group">
+      <%= form.label :keywords %>
+      <input class="form-control" id="keywords-field">
+      <%= form.hidden_field :keywords, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
       <%= form.label :price %>
       <%= form.number_field :price, class: "form-control" %>
     </div>
@@ -87,6 +93,34 @@
 
     document.getElementById('product_refer_ids').value = JSON.stringify(current_value)
     document.getElementById('display_refer_products').innerHTML += "<div class=\"group-div\"><div class='product-refer-new'>" + text + "</div><button class=\"input-group-text btn btn-danger\" onclick=\"remove_refer(this)\">x</button></div>"
+  }
+
+  let currentURL = document.getElementById('product_title').value
+    ? convertTitle(document.getElementById('product_title').value) + '.html'
+    : '';
+
+  document.getElementById('url-display-field').value = currentURL;
+
+  document.getElementById('keywords-field').addEventListener('input', function() {
+      let keywords = document.getElementById('keywords-field').value.split(',');
+      let trimmedKeywords = keywords.map(keyword => keyword.trim());
+      document.getElementById('product_keywords').value = JSON.stringify(trimmedKeywords);
+  });
+
+  let currentKeywords = document.getElementById('product_keywords').value
+      ? JSON.parse(document.getElementById('product_keywords').value).join(', ')
+      : '';
+
+  document.getElementById('keywords-field').value = currentKeywords;
+
+  function convertTitle(title) {
+    title = title.replace(/ /g, '-').toLowerCase();
+
+    title = title.split('').filter(function (cha) {
+      return 'đáàảãạăắẳẵặằâấầẩẫậèéẻẽẹêềếểễệiìỉíịĩýỳỷỹỵòóỏõọôồốổỗộơờớởỡợưừứựửữùúủũụqwertyuiopasdfghjklzxcvbnm-0123456789'.includes(cha);
+    }).join('');
+
+    return title;
   }
 </script>
 

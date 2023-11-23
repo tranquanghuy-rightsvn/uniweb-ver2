@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 2023_11_11_065421) do
     t.string "url"
     t.string "image"
     t.string "refer_ids", default: "[]"
+    t.string "keywords", default: "[]"
     t.bigint "category_id"
     t.bigint "user_id"
     t.bigint "website_id", null: false
@@ -162,6 +163,7 @@ ActiveRecord::Schema.define(version: 2023_11_11_065421) do
     t.integer "price"
     t.text "description"
     t.string "refer_ids", default: "[]"
+    t.string "keywords", default: "[]"
     t.bigint "user_id"
     t.bigint "website_id", null: false
     t.bigint "category_id"
@@ -184,6 +186,7 @@ ActiveRecord::Schema.define(version: 2023_11_11_065421) do
   create_table "repos", charset: "utf8mb4", force: :cascade do |t|
     t.string "path"
     t.string "vercel_domain"
+    t.string "git_remote"
     t.boolean "is_available", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

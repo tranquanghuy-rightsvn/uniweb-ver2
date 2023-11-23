@@ -43,11 +43,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit :title, :description, :content, :image, :url, :refer_ids, :category_id
+    params.require(:post).permit :title, :description, :content, :image, :url, :refer_ids, :category_id, :keywords
   end
 
   def post_update_params
-    params.require(:post).permit :title, :description, :content, :image, :refer_ids, :category_id
+    params.require(:post).permit :title, :description, :content, :image, :refer_ids, :category_id, :keywords
   end
 
   def load_post

@@ -202,6 +202,29 @@ export function generate_feature(page, ele, index){
   }
 }
 
+export function generate_footer(page, ele, index){
+  let website = JSON.parse(localStorage.getItem('website'))
+  let parent = 'uni-' + convertTitle(page.page) + "-" + index
+
+  if(website){
+    let elements = website[0].elements[0] || {}
+
+    if(website[0].elements[website[0].elements.length - 1].name != 'Footer') return
+
+    let menu_items = elements.menu_items || []
+
+    $('.' + parent + ' .list-menu-footer').html('')
+
+    website.map((page)=>{
+      if(menu_items.find((item) => {return item.name == page.page && item.type == 'dropdown'})) return
+
+      $('.' + parent + ' .list-menu-footer').append('<a href="' +  convertUrl(page.page) + '.html' + '" ><p>' + page.page + '</p></a>')
+    })
+
+    $('.' + parent + ' .list-menu-footer').append('<a href="kho-luu-tru.html">Kho lưu trữ</a>')
+  }
+}
+
 export function generate_common(page, ele, index){
   if ('text' in ele.property){
     let texts = ele.property.text
