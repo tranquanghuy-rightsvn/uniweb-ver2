@@ -15,4 +15,13 @@ module ApplicationHelper
       "<span class='badge bg-danger'>Đã hủy</span>".html_safe
     end
   end
+
+  def repo_status(is_available)
+    case is_available
+    when true
+      "<span class='badge bg-secondary'>Còn hàng</span>".html_safe
+    when false
+      "<span class='badge bg-success'>Đã dùng</span>".html_safe
+    end
+  end
 end

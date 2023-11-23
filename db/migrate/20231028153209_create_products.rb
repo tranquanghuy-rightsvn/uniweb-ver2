@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.integer :price
       t.text :description
       t.string :refer_ids, default: "[]"
+      t.string :keywords, default: "[]"
 
       t.references :user
       t.references :website, null: false

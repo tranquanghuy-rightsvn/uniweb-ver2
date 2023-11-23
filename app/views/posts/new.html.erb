@@ -37,6 +37,12 @@
     </div>
 
     <div class="form-group">
+      <%= form.label :keywords %>
+      <input class="form-control" id="keywords-field">
+      <%= form.hidden_field :keywords, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
       <label for="post_refer_ids">Bài viết liên quan</label>
       <div class="input-group mb-3">
         <%= select_tag(:refer_ids, options_for_select(Post.where(website_id: params[:website_id]).pluck(:title, :id)), {class: 'form-control'}) %>
@@ -74,6 +80,34 @@
 
     document.getElementById('post_refer_ids').value = JSON.stringify(current_value)
     document.getElementById('display_refer_posts').innerHTML += "<div class=\"group-div\"><div class='post-refer-new'>" + text + "</div><button class=\"input-group-text btn btn-danger\" onclick=\"remove_refer(this)\">x</button></div>"
+  }
+
+  let currentURL = document.getElementById('post_title').value
+    ? convertTitle(document.getElementById('post_title').value) + '.html'
+    : '';
+
+  document.getElementById('url-display-field').value = currentURL;
+
+  document.getElementById('keywords-field').addEventListener('input', function() {
+      let keywords = document.getElementById('keywords-field').value.split(',');
+      let trimmedKeywords = keywords.map(keyword => keyword.trim());
+      document.getElementById('post_keywords').value = JSON.stringify(trimmedKeywords);
+  });
+
+  let currentKeywords = document.getElementById('post_keywords').value
+      ? JSON.parse(document.getElementById('post_keywords').value).join(', ')
+      : '';
+
+  document.getElementById('keywords-field').value = currentKeywords;
+
+  function convertTitle(title) {
+    title = title.replace(/ /g, '-').toLowerCase();
+
+    title = title.split('').filter(function (cha) {
+      return 'đáàảãạăắẳẵặằâấầẩẫậèéẻẽẹêềếểễệiìỉíịĩýỳỷỹỵòóỏõọôồốổỗộơờớởỡợưừứựửữùúủũụqwertyuiopasdfghjklzxcvbnm-0123456789'.includes(cha);
+    }).join('');
+
+    return title;
   }
 </script>
 

@@ -17,5 +17,5 @@ user_2 = User.create! email: "quanghuy@gmail.com", password: "123123", role: 2
 
 repo_names = ["lion_roar", "baby_shark", "blue_canon"]
 repo_names.each do |repo|
-  Repo.create! path: repo, vercel_domain: "#{repo}.vercel.com"
+  Repo.create! path: repo
 end

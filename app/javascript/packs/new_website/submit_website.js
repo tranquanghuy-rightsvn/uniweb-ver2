@@ -54,7 +54,10 @@ window.submit_website = function(){
       }
     },
     success: function(response){
-      console.log(response)
+      if(response.status == 200){
+        alert("Tạo thành công")
+        window.location.href = "/"
+      }
     }
   });
 }

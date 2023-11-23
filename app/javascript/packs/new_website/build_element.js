@@ -1,5 +1,5 @@
 import { display_only_current_page, convertUrl, convertTitle, current_uni_page, current_uni_website, save_website, set_current_uni_page, async_menu, page_links } from "./common";
-import { generate_menu, generate_header, generate_feature, generate_common } from './generate_element'
+import { generate_menu, generate_header, generate_feature, generate_common, generate_footer } from './generate_element'
 
 export function build_page(){
   var website = JSON.parse(localStorage.getItem('website'))
@@ -17,6 +17,8 @@ export function build_page(){
         generate_header(page, ele, index)
       }else if(ele.name == 'Feature'){
         generate_feature(page, ele, index)
+      }else if(ele.name == 'Footer'){
+        generate_footer(page, ele, index)
       }
 
       generate_common(page, ele, index)

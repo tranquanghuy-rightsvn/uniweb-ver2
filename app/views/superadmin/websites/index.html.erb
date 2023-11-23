@@ -1,0 +1,28 @@
+<div class="container">
+  <h3 class="mb-3"> Quản trị websites</h3>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Website name</th>
+        <th scope="col">Domain</th>
+        <th scope="col">User Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @websites.order(id: :desc).map do |website| %>
+        <tr>
+          <th scope="row"><%= website.id %></th>
+          <td><%= website.name %></td>
+          <td><%= link_to website.real_domain, website.real_domain %></td>
+          <td><%= website.owner.email %></td>
+          <td>
+            <button class="btn btn-danger">Reset</button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

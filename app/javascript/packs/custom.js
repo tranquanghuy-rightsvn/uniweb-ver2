@@ -1,5 +1,10 @@
 function convertTitle(title) {
   title = title.replace(/ /g, '-').toLowerCase();
+
+  title = title.split('').filter(function (cha) {
+    return 'đáàảãạăắẳẵặằâấầẩẫậèéẻẽẹêềếểễệiìỉíịĩýỳỷỹỵòóỏõọôồốổỗộơờớởỡợưừứựửữùúủũụqwertyuiopasdfghjklzxcvbnm-0123456789'.includes(cha);
+  }).join('');
+
   return title;
 }
 

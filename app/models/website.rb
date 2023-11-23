@@ -35,7 +35,7 @@ class Website < ApplicationRecord
   end
 
   def real_domain
-    domain = domain_website || repo.vercel_domain
+    domain = domain_website || repo.vercel_domain || ''
     "https://www." + domain + "/"
   end
 
@@ -64,13 +64,13 @@ class Website < ApplicationRecord
     end
 
     File.write('search.html', RenderHtml.render_search_page(self)) if menu.include?('uni-searchable')
-    File.write('cart.html', RenderHtml.render_cart_page(self)) if JSON.parse(resources).include?('product')
+    File.write('cart.html', RenderHtml.render_cart_page(self)) if JSON.parse(resources || '[]').include?('product')
 
     File.write('sitemaps.xml', sitemap_xml)
   end
 
   def create_store
-    if JSON.parse(resources).include?('product')
+    if JSON.parse(resources || '[]').include?('product')
       Store.create!(website_id: id)
     end
   end

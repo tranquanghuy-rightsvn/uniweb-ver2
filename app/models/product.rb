@@ -63,6 +63,19 @@ class Product < ApplicationRecord
     File.write('sitemaps.xml', sitemap_xml)
   end
 
+  def update_file
+    Dir.chdir("#{Rails.root.parent}/projects/#{website.repo.path}")
+    content_post = RenderHtml.render_product website, self
+    File.write(url, content_post)
+  end
+
+  def destroy_file
+    Dir.chdir("#{Rails.root.parent}/projects/#{website.repo.path}")
+
+    if File.exist?(url)
+      File.delete(url)
+    end
+  end
 
   def must_have_image
     errors.add(:base, "Phải có ít nhất 1 ảnh") if product_images.blank?

@@ -1,0 +1,27 @@
+<div class="container" id="create-new-record">
+  <h2>Tạo repo</h2>
+
+  <%= form_for(@repo, url: superadmin_repos_path) do |form| %>
+    <div id="error_explanation">
+      <ul>
+        <% @repo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :path %>
+      <%= form.text_field :path, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :git_remote %>
+      <%= form.text_field :git_remote, class: "form-control" %>
+    </div>
+
+    <div class="button-create">
+      <%= form.submit "Tạo", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

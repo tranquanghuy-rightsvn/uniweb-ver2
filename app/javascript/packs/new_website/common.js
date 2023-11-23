@@ -68,15 +68,36 @@ export function async_menu(){
 export function async_footer(){
   let website = JSON.parse(localStorage.getItem('website'))
 
-  let curent_page = website.find((page) => {return page.page == current_uni_page()})
+  let curent_page = website.find((page, i) => {
+    return page.page == current_uni_page()
+  })
   website.map((page, i)=>{
-    if(i == 0) return;
+    if(page.elements[page.elements.length - 1].name == 'Footer') return
 
     page.elements.push(curent_page.elements[curent_page.elements.length - 1])
   })
 
   save_website(website)
   build_page()
+}
+
+export function load_menu_footer(){
+  // let website = JSON.parse(localStorage.getItem('website'))
+  // console.log(website)
+
+  // if(website){
+  //   let elements = website[0].elements[0] || {}
+
+  //   if(website[0].elements[website[0].elements.length - 1].name != 'Footer') return
+
+  //   let menu_items = elements.menu_items || []
+
+  //   website.map((page)=>{
+  //     if(menu_items.find((item) => {return item.name == page.page && item.type == 'dropdown'})) return
+
+  //     $('footer .list-menu-footer').append('<a href="' +  convertUrl(page.page) + '.html' + '" >' + page.page + '</a>')
+  //   })
+  // }
 }
 
 export function display_only_current_page(){

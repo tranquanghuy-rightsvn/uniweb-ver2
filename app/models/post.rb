@@ -27,6 +27,10 @@ class Post < ApplicationRecord
     "Đăng lúc #{(created_at + 7 *3600).strftime("%H:%M %d/%m/%Y")}"
   end
 
+  def formated_time
+    created_at.in_time_zone('Asia/Ho_Chi_Minh').strftime('%Y-%m-%dT%H:%M:%S%:z')
+  end
+
   def search_data
     {
       title: title,
@@ -63,10 +67,18 @@ class Post < ApplicationRecord
     File.write('sitemaps.xml', sitemap_xml)
   end
 
-  def update_file
+   def update_file
+    Dir.chdir("#{Rails.root.parent}/projects/#{website.repo.path}")
+    content_post = RenderHtml.render_post website, self
+    File.write(url, content_post)
   end
 
   def destroy_file
+    Dir.chdir("#{Rails.root.parent}/projects/#{website.repo.path}")
+
+    if File.exist?(url)
+      File.delete(url)
+    end
   end
 end
 

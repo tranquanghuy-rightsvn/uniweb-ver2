@@ -60,8 +60,9 @@
       </div>
 
       <nav class="mt-2">
-        <% if @website.present? %>
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <% if @website.present? %>
+
             <% if current_user.is_own_website?(params[:website_id]) %>
               <li class="nav-item">
                 <a href="<%= website_analytic_path(@website) %>" class="nav-link<%= params[:action] == 'analytic' ? ' active' : '' %>">
@@ -73,7 +74,7 @@
               </li>
             <% end %>
 
-            <% resources = JSON.parse(@website.resources) %>
+            <% resources = JSON.parse(@website.resources || '[]') %>
 
             <li class="nav-item <%= params[:controller] == 'websites' && (params[:action] == 'general' || params[:action] == 'images' || params[:action] == 'store') ? ' menu-open' : '' %>">
               <a href="#" class="nav-link">
@@ -199,35 +200,62 @@
                 </p>
               </a>
             </li>
+          <% end %>
 
-            <li class="nav-item mt-5">
+          <% if current_user.super_admin? %>
+            <li class="nav-item<%= params[:controller] == 'superadmin/websites' || params[:controller] == 'superadmin/repos' ? ' menu-open' : '' %>">
               <a href="#" class="nav-link">
+                <i class="fas fa-user-shield"></i>
                 <p>
-                  <%= current_user.email.truncate(22) %>
-                  <i class="fas fa-angle-left right"></i>
+                  Supper Admin
                 </p>
+                <i class="fas fa-angle-left right"></i>
               </a>
+
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <%= link_to "<i class='fas fa-sign-out-alt nav-icon'></i><p>Đăng xuất</p>".html_safe, destroy_user_session_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <a href="<%= new_website_path %>" class="nav-link">
-                    <i class="fas fa-plus-square nav-icon"></i>
-                    <p>Tạo website mới</p>
+                  <a href="<%= superadmin_websites_path %>" class="nav-link<%= params[:controller] == 'superadmin/websites' ? ' active' : '' %>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Websites</p>
                   </a>
                 </li>
-
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-envelope nav-icon"></i>
-                    <p>Liên hệ với Admin</p>
+                  <a href="<%= superadmin_repos_path %>" class="nav-link<%= params[:controller] == 'superadmin/repos' ? ' active' : '' %>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Repo</p>
                   </a>
                 </li>
               </ul>
             </li>
-          </ul>
-        <% end %>
+          <% end %>
+
+          <li class="nav-item mt-5">
+            <a href="#" class="nav-link">
+              <p>
+                <%= current_user.email.truncate(22) %>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to "<i class='fas fa-sign-out-alt nav-icon'></i><p>Đăng xuất</p>".html_safe, destroy_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <a href="<%= new_website_path %>" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Tạo website mới</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-envelope nav-icon"></i>
+                  <p>Liên hệ với Admin</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </nav>
     </div>
   </aside>

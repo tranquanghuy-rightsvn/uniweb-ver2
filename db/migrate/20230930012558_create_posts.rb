@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :url
       t.string :image
       t.string :refer_ids, default: "[]"
+      t.string :keywords, default: "[]"
 
       t.references :category
       t.references :user
