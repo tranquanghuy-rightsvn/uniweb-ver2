@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get :domain
     get :store
     patch :store, to: 'stores#update_store'
+    patch :setting_analytic
     resources :posts, except: :show
     resources :products, except: :show
     resources :users, except: [:show, :edit, :update]

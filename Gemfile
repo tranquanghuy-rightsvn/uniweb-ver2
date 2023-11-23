@@ -27,6 +27,8 @@ gem 'redis-client'
 gem 'sidekiq'
 gem 'elasticsearch', '7.0.0.pre'
 gem 'searchkick'
+gem 'google-analytics-data-v1beta'
+gem 'whenever', require: false
 
 # deploy
 gem 'capistrano'
