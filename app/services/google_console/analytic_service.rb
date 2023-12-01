@@ -80,9 +80,9 @@ class GoogleConsole::AnalyticService
     daily_views = daily_views.sort.to_h
     google_api_credential.update! number_of_views: daily_views
   end
-  
+
   def get_top_posts
-    limit = 7
+    limit = 30
     response = get_report("pageTitle")
     posts = []
     response.rows.each do |row|
@@ -90,23 +90,23 @@ class GoogleConsole::AnalyticService
       views = row.metric_values[0].value.to_i
       posts << { page_title: page_title, views: views }
     end
-  
+
     sorted_posts = posts.sort_by { |post| -post[:views] }
     top_posts = sorted_posts.take(limit)
     google_api_credential.update! top_posts: top_posts.to_json
   end
-  
+
   def get_top_countries
     limit = 7
     response = get_report("country")
     countries = []
-  
+
     response.rows.each do |row|
       country_name = row.dimension_values[0].value
       views = row.metric_values[0].value.to_i
       countries << { country_name: country_name, views: views }
     end
-  
+
     sorted_countries = countries.sort_by { |country| -country[:views] }
     top_countries = sorted_countries.take(limit)
     google_api_credential.update! top_countries: top_countries.to_json

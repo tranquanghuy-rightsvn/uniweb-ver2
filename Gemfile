@@ -26,6 +26,7 @@ gem 'redis'
 gem 'redis-client'
 gem 'sidekiq'
 gem 'elasticsearch', '7.0.0.pre'
+gem 'openssl'
 gem 'searchkick'
 gem 'google-analytics-data-v1beta'
 gem 'whenever', require: false

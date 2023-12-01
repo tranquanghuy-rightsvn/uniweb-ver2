@@ -63,50 +63,55 @@
     </div>
 
     <div class="row">
-    <div class="col-sm-6">
+      <div class="col-sm-6">
         <div class="card">
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Page title and screen class</th>
-                        <th scope="col">Views</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <% JSON.parse(@google_api_credential.top_posts).map do |post| %>
-                    <tr>
-                        <th scope="row"><%= post["page_title"] %></th>
-                        <td><%= post["views"] %></td>
-                    </tr>
-                <% end %>
-                </tbody>
-            </table>
-        </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">COUNTRY</th>
-                        <th scope="col">USERS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% JSON.parse(@google_api_credential.top_countries).map do |country| %>
-                        <tr>
-                            <th scope="row"><%= country["country_name"] %></th>
-                            <td><%= country["views"] %></td>
-                        </tr>
+          <div class="card-body">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">Page title and screen class</th>
+                          <th scope="col">Views</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% if @google_api_credential&.top_posts %>
+                      <% JSON.parse(@google_api_credential.top_posts).map do |post| %>
+                          <tr>
+                              <th scope="row"><%= post["page_title"] %></th>
+                              <td><%= post["views"] %></td>
+                          </tr>
+                      <% end %>
                     <% end %>
-                </tbody>
-            </table>
+                  </tbody>
+              </table>
+          </div>
         </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">COUNTRY</th>
+                          <th scope="col">USERS</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% if @google_api_credential&.top_countries %>
+                      <% JSON.parse(@google_api_credential.top_countries).map do |country| %>
+                          <tr>
+                              <th scope="row"><%= country["country_name"] %></th>
+                              <td><%= country["views"] %></td>
+                          </tr>
+                      <% end %>
+                    <% end %>
+                  </tbody>
+              </table>
+          </div>
         </div>
-    </div>
+      </div>
     </div>
 </div>
 
@@ -137,7 +142,7 @@
       labels: labels,
       datasets: [{
         label: '',
-        data: <%= @google_api_credential.number_of_views.values %>,
+        data: <%= @google_api_credential&.number_of_views&.values || [] %>,
         backgroundColor: [
           'rgba(85, 85, 85, 1)'
         ],
