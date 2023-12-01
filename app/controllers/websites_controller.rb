@@ -7,7 +7,7 @@ class WebsitesController < ApplicationController
 
   def analytic
     @website = Website.find_by(id: params[:website_id])
-    @google_api_credential = @website.google_api_credential
+    @google_api_credential = @website.google_api_credential || GoogleApiCredential.new
 
     render :analytic
   end
@@ -51,8 +51,8 @@ class WebsitesController < ApplicationController
 
   def setting_analytic
     website = Website.find_by(id: params[:website_id])
-    google_api_credential = website.google_api_credential
-    google_api_credential.update!(
+    google_api_credential = GoogleApiCredential.create!(
+      website_id: website.id,
       project_id: params[:project_id],
       private_key_id: params[:private_key_id],
       private_key: params[:private_key],
