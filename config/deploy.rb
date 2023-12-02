@@ -8,7 +8,7 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_map_bins, %w{gem rake ruby rails bundle puma pumactl}
-set :rvm_ruby_version, '3.0.3'
+set :rvm_ruby_version, '3.2.2'
 set :use_sudo, true
 
 set :default_env, {
