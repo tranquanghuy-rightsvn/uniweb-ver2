@@ -463,7 +463,7 @@ p.product-price{
 }
 
 .wraper-search{
-  max-width: min(800px, 100%);
+  max-width: calc(min(800px, 100%));
   margin: auto;
 }
 
