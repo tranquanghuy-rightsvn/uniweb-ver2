@@ -27,6 +27,7 @@ module Uniwebsite
     end
 
     config.autoload_paths += %W(#{config.root}/lib/modules)
+    config.autoload_paths += %W(#{config.root}/app/services)
 
     # Configuration for the application, engines, and railties goes here.
     #

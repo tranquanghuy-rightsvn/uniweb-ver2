@@ -90,3 +90,5 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+  public_root_path: public
+  public_output_path: assets/packs
